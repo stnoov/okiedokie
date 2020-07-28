@@ -1,0 +1,87 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 60px;
+    min-height: 30rem;
+    padding-top: 4.5rem;
+}
+
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    color: grey;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+.carousel-indicators li {
+    background-color: green;
+}
+
+.carousel-indicators .active {
+    background-color: yellow;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+    margin-top: -200px;
+}
+
+.border-3 {
+    border-width: 3px !important;
+}
+
+.card-header #pointsinfo:hover {
+    text-decoration: underline;
+}
+
+table tr,
+table tr td,
+.table td {
+    border-top: none;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+     direction:ltr;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+#style-3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background-color: #0275d8;
+}
+

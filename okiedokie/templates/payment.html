@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Payment
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+<form class="form-signin" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+  {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+           <input type="hidden" name="receiver" value="4100115520088790">
+           <input type="hidden" name="quickpay-form" value="donate">
+           <input type="hidden" name="sum" value="4568.25" data-type="number">
+           <input type="hidden" name="targets" value="Payment">
+            6AuGqoUNv64CdSVdVniLEMmI
+           {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
+      </fieldset>
+</form>
+</div>
+{% endblock body %}

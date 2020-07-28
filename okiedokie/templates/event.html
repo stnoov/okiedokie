@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}
+Event {{ event.id }}
+{% endblock title %}
+{% block body %}
+
+<h1 class="text-center">{{ event.title }}
+    {% if current_user.is_admin %}
+    <div class="">
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+            Delete
+        </button>
+    </div>
+    {% endif %}
+</h1>
+
+<div class="container text-center mt-5  border-dark border-3">
+    <div class="row">
+        <div class="col">
+            <h4>Date</h4>
+        </div>
+        <div class="col">
+            <h4>Time</h4>
+        </div>
+        <div class="col">
+            <h4>Places left</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>{{ event.date.strftime('%d/%m/%Y') }}</h4>
+        </div>
+        <div class="col">
+            <h4>{{ event.date.strftime('%H:%M') }}</h4>
+        </div>
+        <div class="col">
+            <h4> {{ event.places }}</h4>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">{{ event.text }}</div>
+        {% if minutes < 15 and minutes > 0 and current_user.is_authenticated and current_user.paid_classes > 1 and
+        registered==True %}
+        <a href="https://vk.com/public195995603" class="h-25 text-center btn btn-primary">Connect</a>
+        {% elif not current_user.is_authenticated and current_date < event.date%}
+        <div class="col"><h4>Log in to sign up for that class</h4></div>
+        {% elif current_user.paid_classes < 1 and current_date < event.date%}
+        <div class="col"><h4>Top up your balance to sign up</h4></div>
+        {% elif current_date > event.date %}
+        <div class="col"><h4>Meeting is over</h4></div>
+        {% elif current_user.paid_classes > 0 and current_date < event.date%}
+        <button type="button" class="btn btn-md btn-outline-success btn-block mt-5" data-toggle="modal"
+                data-target="#signModal">
+            Sign Up
+        </button>
+        {% endif %}
+        <div class="col"></div>
+    </div>
+</div>
+</div>
+
+
+
+<!-- Modals -->
+<div class="modal fade" id="signModal" tabindex="-1" role="dialog" aria-labelledby="signModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signModalTitle">Sign for this meeting?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="form" method="post">
+                    {{ form.hidden_tag() }}
+                    {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalTitle">Delete meeting?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <button type="button" class="btn btn-lg btn-secondary" data-dismiss="modal">Close</button>
+                <a href="{{ url_for('meetings.delete_post', event_id=event.id) }}"
+                   class="float-right btn btn-lg btn-outline-danger text-decoration-none">Delete</a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

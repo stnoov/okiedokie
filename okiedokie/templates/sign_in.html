@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/signin.css') }}">
+{% endblock link %}
+{% block title %}
+Registration
+{% endblock title %}
+{% block body %}
+<div class="container mt-5">
+<form class="form-signin" method="POST" action="">
+  {{ form.hidden_tag() }}
+  <fieldset class="form-group">
+  <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+
+   {% if form.email.errors %}
+      {{ form.email(class="form-control form-control-lg is-invalid") }}
+        <div class="mt-1 mb-4 alert alert-danger">
+        <strong> {{ error }} </strong>
+        </div>
+   {% else %}
+      {{ form.email(class="form-control form-control-lg mb-2", placeholder="Email") }}
+   {% endif %}
+
+{% if form.password.errors %}
+          {{ form.password(class="form-control form-control-lg is-invalid", placeholder="Last name") }}
+        <div class="mt-1 mb-4 alert alert-danger">
+        {% for error in form.password.errors %}
+          <strong> {{ error }} </strong>
+          {% endfor %}
+        </div>
+    {% else %}
+    {{ form.password(class="form-control form-control-lg mb-2", placeholder="Password") }}
+    {% endif %}
+
+     <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+    </fieldset>
+   {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
+    <span class="mt-2">Forgot your password? <a href="{{ url_for('users.request_reset') }}">Reset</a></span>
+</form>
+
+    </div>
+{% endblock body %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Okie Points
+{% endblock title %}
+
+{% block body %}
+<div class="container mt-5 text-center">
+    <p class="h2 ">How to earn Okie Points?</p>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <td>Share from our <a href="https://vk.com/public195995603">OkieDokie!</a> group on VK or Facebook</td>
+            <td>1 point</td>
+        </tr>
+        <tr>
+            <td>New member invited by you in meeting</td>
+            <td>1 point</td>
+        </tr>
+        <tr>
+            <td>Victory in a game</td>
+            <td>1 point</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><small>The list will be updated</small></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <div class="mb-2 h2">Top Users</div>
+                </thead>
+                {% for user in top_users %}
+                <tr class="bg-info rounded text-light border-bottom border-light">
+                    <td>{{ loop.index }}</td>
+                    <td class="h4 text-left">{{ user.first_name }} {{ user.last_name }}</td>
+                    <td class="h4">{{ user.points }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col">
+            <p class="h1">New bonus system!</p>
+            <p class="h4 mt-4">Earn 5 Okie Points and get free individual English lesson!</p>
+        </div>
+    </div>
+</div>
+{% endblock body %}
