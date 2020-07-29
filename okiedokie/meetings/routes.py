@@ -11,6 +11,7 @@ meetings = Blueprint('meetings', __name__)
 
 
 @meetings.route("/meetings/<int:event_id>", methods=['GET', 'POST'])
+@login_required
 def event(event_id):
     event = Events.query.get_or_404(event_id)
     form = EventSignUp()

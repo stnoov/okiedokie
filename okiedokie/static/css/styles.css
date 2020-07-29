@@ -59,9 +59,10 @@ table tr td,
 
 .my-custom-scrollbar {
     position: relative;
-    height: 200px;
+    height: auto;
+    max-height: 300px;
     overflow: auto;
-     direction:ltr;
+    direction:ltr;
 }
 
 .table-wrapper-scroll-y {
@@ -83,5 +84,30 @@ table tr td,
 #style-3::-webkit-scrollbar-thumb
 {
 	background-color: #0275d8;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+.article-img {
+  height: 80px;
+  width: 80px;
+  margin-right: 16px;
 }
 

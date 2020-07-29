@@ -5,7 +5,7 @@ from okiedokie import db, bcrypt
 from okiedokie.models import User
 from flask_login import login_user, current_user, logout_user, login_required
 from okiedokie.users.forms import RegistrationForm, LoginForm, UpdateAccountForm, ResetPasswordForm, RequestResetForm, CreateAdmin
-from okiedokie.users.utils import send_reset_email, send_confirmation_email
+from okiedokie.users.utils import send_reset_email, send_confirmation_email, save_picture
 
 
 users = Blueprint('users', __name__)
@@ -59,13 +59,17 @@ def profile():
     form = UpdateAccountForm()
     current_date = datetime.datetime.now()
     if form.validate_on_submit():
+        if form.picture.data:
+            picture_file = save_picture(form.picture.data)
+            current_user.image_file = picture_file
         current_user.email = form.email.data
         db.session.commit()
         flash('Your account has been updated!', 'success')
         return redirect(url_for('users.profile'))
     elif request.method == 'GET':
         form.email.data = current_user.email
-    return render_template('profile.html', form=form, current_date=current_date)
+    image_file = url_for('static', filename='images/profile_pics/' + current_user.image_file)
+    return render_template('profile.html', form=form, current_date=current_date, image_file=image_file)
 
 
 @users.route('/confirm/<token>')
@@ -79,8 +83,6 @@ def confirm_token(token):
     db.session.commit()
     flash('You have confirmed your account. Thanks!', 'success')
     return redirect(url_for('main.home'))
-
-
 
 
 @users.route('/reset_password', methods=['GET', 'POST'])

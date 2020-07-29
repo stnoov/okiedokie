@@ -75,14 +75,14 @@ Reviews
             <li class="list-group-item mb-4 border-top rounded border-warning">
                 <div class="row">
                     <div class="col-xs-2 col-md-1">
-                        <img src="http://placehold.it/80" class="img-responsive rounded-circle" alt=""/></div>
+                        <img class="rounded-circle article-img" src="{{ url_for('static', filename='images/profile_pics/' + review.author.image_file) }}"></div>
                     <div class="col-xs-10 col-md-11">
                         <div>
                             <a class="text-decoration-none text-primary">
                                 {{ review.title }}</a>
                             <div class="mic-info">
-                                <a class="text-decoration-none text-primary">{{ review.authors_name }}</a>
-                                {{ review.date }}
+                                <a class="text-decoration-none text-primary">{{ review.author.first_name }}</a>
+                                <span class="font-italic">{{ review.date.strftime('%d/%m/%Y')  }}</span>
                             </div>
                         </div>
                         <div class="comment-text">
@@ -90,7 +90,7 @@ Reviews
                         </div>
                         <div class="action">
                             {% if current_user.is_admin %}
-                            <button type="button" class="btn btn-danger btn-xs" title="Delete">
+                            <button type="button" class="btn btn-danger btn-xs mt-2" title="Delete">
                                 <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill"
                                      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"

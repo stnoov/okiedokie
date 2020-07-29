@@ -77,7 +77,7 @@ def reviews():
     form = AddReviewForm()
     if form.validate_on_submit():
         new_review = Reviews(title=form.title.data, text=form.text.data, date=current_date,
-                             authors_name=current_user.first_name)
+                             author=current_user)
         db.session.add(new_review)
         db.session.commit()
         flash('Review has been submitted!', 'success')

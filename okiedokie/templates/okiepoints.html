@@ -32,10 +32,10 @@ Okie Points
         <div class="col">
             <table class="table">
                 <thead>
-                <div class="mb-2 h2">Top Users</div>
+                <div class="mb-2 h1">Top Users</div>
                 </thead>
                 {% for user in top_users %}
-                <tr class="bg-info rounded text-light border-bottom border-light">
+                <tr class="bg-info rounded text-light border-bottom border-light h4">
                     <td>{{ loop.index }}</td>
                     <td class="h4 text-left">{{ user.first_name }} {{ user.last_name }}</td>
                     <td class="h4">{{ user.points }}</td>

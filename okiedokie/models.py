@@ -23,11 +23,13 @@ class User(db.Model, UserMixin):
     last_name = db.Column(db.String(20), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     password = db.Column(db.String(60), nullable=False)
+    image_file = db.Column(db.String(20), nullable=False, default='default.png')
     points = db.Column(db.Integer, default=0)
     paid_classes = db.Column(db.Integer, default=1)
     attended_classes = db.Column(db.Integer, default=0)
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
     is_admin = db.Column(db.Boolean, default=False)
+    reviews = db.relationship('Reviews', backref='author', lazy=True)
     signed_users = db.relationship('Events', secondary=signed_users, lazy='subquery',
         backref=db.backref('signed_users', lazy=True))
 
@@ -71,8 +73,8 @@ class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
-    authors_name = db.Column(db.String(255), nullable=False)
     text = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 
 class Events(db.Model):
@@ -96,7 +98,8 @@ class Controller(ModelView):
 
 admin.add_view(Controller(User, db.session))
 admin.add_view(Controller(Events, db.session))
-
+admin.add_view(Controller(Reviews, db.session))
+admin.add_view(Controller(News, db.session))
 
 
 
