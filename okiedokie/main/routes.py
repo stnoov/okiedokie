@@ -72,7 +72,8 @@ def okiepoints():
 
 @main.route('/reviews', methods=['GET', 'POST'])
 def reviews():
-    reviews = Reviews.query.order_by(Reviews.date.desc())
+    page = request.args.get('page',1, type=int)
+    reviews = Reviews.query.order_by(Reviews.date.desc()).paginate(page=page, per_page=5)
     current_date = datetime.datetime.now()
     form = AddReviewForm()
     if form.validate_on_submit():
@@ -88,14 +89,26 @@ def reviews():
 @main.route("/home/<int:news_id>/delete_news/", methods=['GET', 'POST'])
 @login_required
 def delete_news(news_id):
-    print('Hello world!', file=sys.stderr)
-    print(news_id)
     if current_user.is_admin:
         news = News.query.get_or_404(news_id)
         db.session.delete(news)
         db.session.commit()
         flash('News has been deleted!', 'success')
         return redirect(url_for('main.home'))
+    else:
+        flash('You do not have permissions to do that', 'danger')
+        return redirect(url_for('main.home'))
+
+
+@main.route("/home/<int:review_id>/delete_review/", methods=['GET', 'POST'])
+@login_required
+def delete_review(review_id):
+    if current_user.is_admin:
+        review = Reviews.query.get_or_404(review_id)
+        db.session.delete(review)
+        db.session.commit()
+        flash('Review has been deleted!', 'success')
+        return redirect(url_for('main.reviews'))
     else:
         flash('You do not have permissions to do that', 'danger')
         return redirect(url_for('main.home'))
