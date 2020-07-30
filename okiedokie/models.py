@@ -1,6 +1,6 @@
-from flask import abort
+from flask import abort, current_app
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-from okiedokie import db, login_manager, admin, app
+from okiedokie import db, login_manager, admin
 from flask_login import UserMixin, current_user
 from flask_admin.contrib.sqla import ModelView
 
@@ -35,12 +35,12 @@ class User(db.Model, UserMixin):
 
     #### CONFIRM EMAIL ####
     def get_confirmation_token(self, expires_sec=1800):
-        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
         return s.dumps({'user_id': self.id}).decode('utf-8')
 
     @staticmethod
     def verify_confirmation_token(token):
-        s = Serializer(app.config['SECRET_KEY'])
+        s = Serializer(current_app.config['SECRET_KEY'])
         try:
             user_id = s.loads(token)['user_id']
         except:
@@ -49,12 +49,12 @@ class User(db.Model, UserMixin):
 
     #### RESET PASSWORD ####
     def get_reset_token(self, expires_sec=1800):
-        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        s = Serializer(current_app.config['SECRET_KEY'], expires_sec)
         return s.dumps({'user_id': self.id}).decode('utf-8')
 
     @staticmethod
     def verify_reset_token(token):
-        s = Serializer(app.config['SECRET_KEY'])
+        s = Serializer(current_app.config['SECRET_KEY'])
         try:
             user_id = s.loads(token)['user_id']
         except:

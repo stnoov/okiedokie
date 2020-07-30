@@ -23,7 +23,6 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         send_confirmation_email(user)
-        flash('A confirmation email has been sent via email', 'success')
         return redirect(url_for('users.sign_in'))
     return render_template('sign_up.html', form=form)
 
