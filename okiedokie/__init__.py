@@ -7,15 +7,11 @@ from flask_mail import Mail
 from okiedokie.config import Config
 
 
-
 db = SQLAlchemy()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 admin = Admin()
 mail = Mail()
-
-
-
 
 
 def create_app(config_class=Config):
@@ -33,6 +29,10 @@ def create_app(config_class=Config):
     app.register_blueprint(users)
     app.register_blueprint(meetings)
     app.register_blueprint(main)
+
+    with app.app_context():
+        db.drop_all()
+        db.create_all()
 
     return app
 
