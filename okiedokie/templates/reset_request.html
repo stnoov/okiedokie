@@ -10,7 +10,7 @@ Reset Password
 <form class="form-signin" method="POST" action="">
   {{ form.hidden_tag() }}
   <fieldset class="form-group">
-  <h1 class="h3 mb-3 font-weight-normal">Reset Password</h1>
+  <h1 class="h3 mb-3 font-weight-normal">{{ _('Reset Password') }} </h1>
 
    {% if form.email.errors %}
       {{ form.email(class="form-control form-control-lg is-invalid") }}
@@ -18,7 +18,7 @@ Reset Password
         <strong> {{ error }} </strong>
         </div>
    {% else %}
-      {{ form.email(class="form-control form-control-lg mb-2", placeholder="Email") }}
+      {{ form.email(class="form-control form-control-lg mb-2", placeholder=gettext("Email")) }}
    {% endif %}
 
     </fieldset>

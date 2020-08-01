@@ -1,12 +1,13 @@
-from flask import Blueprint
+from flask import Blueprint, current_app
 import datetime, sys
 from flask import render_template, url_for, flash, redirect, request
 from flask_login import login_required
-from okiedokie import db
+from okiedokie import db, babel
 from okiedokie.models import Events, Reviews, News, User
 from flask_login import current_user
 from okiedokie.meetings.forms import CreateEventForm
-from okiedokie.main.forms import YandexPaymentForm, AddReviewForm, CreateNewsForm
+from okiedokie.main.forms import YandexPaymentForm, AddReviewForm, CreateNewsForm, ContactForm
+from okiedokie.main.utils import send_contact_message
 
 
 main = Blueprint('main', __name__)
@@ -43,14 +44,32 @@ def home():
     return render_template('home.html', events=events, current_date=current_date, form=form, news_form=news_form, news=news)
 
 
+@main.route('/switch_language_ru')
+def switch_language_ru():
+    current_app.config['BABEL_DEFAULT_LOCALE'] = 'ru'
+    return redirect(url_for('main.home'))
+
+
+@main.route('/switch_language_en')
+def switch_language_en():
+    current_app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+    return redirect(url_for('main.home'))
+
+
 @main.route('/about')
 def about():
     return render_template('about.html')
 
 
-@main.route('/contact')
+@main.route('/contact', methods=['GET', 'POST'])
 def contact():
-    return render_template('contact.html')
+    form = ContactForm()
+    if form.validate_on_submit():
+        send_contact_message(form.email.data, form.name.data, form.message.data)
+        flash('Message sent', 'success')
+        return redirect(url_for('main.contact'))
+
+    return render_template('contact.html', form=form)
 
 
 @main.route('/products', methods=['GET', 'POST'])

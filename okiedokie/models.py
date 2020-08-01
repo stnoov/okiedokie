@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import abort, current_app
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from okiedokie import db, login_manager, admin
@@ -27,6 +28,7 @@ class User(db.Model, UserMixin):
     points = db.Column(db.Integer, default=0)
     paid_classes = db.Column(db.Integer, default=1)
     attended_classes = db.Column(db.Integer, default=0)
+    created_at = db.Column(db.DateTime, default=datetime.now())
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
     is_admin = db.Column(db.Boolean, default=False)
     reviews = db.relationship('Reviews', backref='author', lazy=True)

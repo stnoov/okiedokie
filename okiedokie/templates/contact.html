@@ -1,5 +1,58 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Contact Us
+    Contact Us
 {% endblock title %}
+
+{% block body %}
+    <div class="container contact-form">
+        <div>
+            <img class="contact-image" src="{{ url_for('static', filename='images/main.png') }}" alt="contact"/>
+        </div>
+        <form method="post" action="">
+              {{ form.hidden_tag() }}
+            <h3>{{ _('Drop Us a Message') }}</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {% if form.email.errors %}
+                            {{ form.email(class="form-control form-control-lg is-invalid") }}
+                            <div class="mt-1 mb-4 alert alert-danger">
+                                <strong> {{ error }} </strong>
+                            </div>
+                        {% else %}
+                            {{ form.email(class="form-control form-control-lg mb-2", placeholder=gettext("Email")) }}
+                        {% endif %}
+
+                    </div>
+                    <div class="form-group">
+                        {% if form.message.errors %}
+                            {{ form.message(class="form-control form-control-lg is-invalid") }}
+                            <div class="mt-1 mb-4 alert alert-danger">
+                                <strong> {{ error }} </strong>
+                            </div>
+                        {% else %}
+                            {{ form.message(class="form-control form-control-lg mb-2", placeholder=gettext("Message")) }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <div class="form-group">
+                        {% if form.name.errors %}
+                            {{ form.name(class="form-control form-control-lg is-invalid") }}
+                            <div class="mt-1 mb-4 alert alert-danger">
+                                <strong> {{ error }} </strong>
+                            </div>
+                        {% else %}
+                            {{ form.name(class="form-control form-control-lg mb-2", placeholder=gettext("Name")) }}
+                        {% endif %}
+                    </div>
+                    </div>
+                </div>
+                        {{ form.send(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock body %}

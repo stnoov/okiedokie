@@ -4,7 +4,7 @@ from flask import render_template, url_for, flash, redirect, request
 from okiedokie import db, bcrypt
 from okiedokie.models import User
 from flask_login import login_user, current_user, logout_user, login_required
-from okiedokie.users.forms import RegistrationForm, LoginForm, UpdateAccountForm, ResetPasswordForm, RequestResetForm, CreateAdmin
+from okiedokie.users.forms import RegistrationForm, LoginForm, UpdateAccountForm, ResetPasswordForm, RequestResetForm
 from okiedokie.users.utils import send_reset_email, send_confirmation_email, save_picture
 
 
@@ -23,6 +23,7 @@ def sign_up():
         db.session.add(user)
         db.session.commit()
         send_confirmation_email(user)
+        flash('Письмо с подтверждением было отправлено на вашу почту!', 'success')
         return redirect(url_for('users.sign_in'))
     return render_template('sign_up.html', form=form)
 
@@ -115,17 +116,4 @@ def reset_token(token):
     return render_template('reset_token.html', form=form)
 
 
-
-@users.route('/create_admin', methods=['GET', 'POST'])
-def create_admin():
-    form = CreateAdmin()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(email=form.email.data, first_name="admin", last_name="admin", is_admin=True,
-                    age=0, confirmed=True, password=hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        flash('Your account has been created! You are now able to log in', 'success')
-        return redirect(url_for('users.sign_in'))
-    return render_template('create_admin.html', form=form)
 

@@ -20,11 +20,11 @@ Profile
         <form method="POST" action="" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Account Info</legend>
-                <h5>Paid classes: <span class="text-success"> {{ current_user.paid_classes }} </span></h5>
-                <h5 class="mb-3">Okie Points: <span class="text-success">{{ current_user.points }} </span></h5>
+                <legend class="border-bottom mb-4">{{ _('Account Info') }} </legend>
+                <h5>{{ _('Paid classes') }}: <span class="text-success"> {{ current_user.paid_classes }} </span></h5>
+                <h5 class="mb-3">OkieDokie Points: <span class="text-success">{{ current_user.points }} </span></h5>
                 <div class="form-group">
-                    {{ form.email.label(class="form-control-label h5") }}
+                    <h5>{{ _('Email Address') }}</h5>
                     {% if form.email.errors %}
                     {{ form.email(class="form-control form-control-lg is-invalid") }}
                     <div class="invalid-feedback">
@@ -37,7 +37,7 @@ Profile
                     {% endif %}
                 </div>
                 <div class="form-group">
-                    {{ form.picture.label(class="h5") }}
+                    <h5>{{ _('Update Profile Picture') }}</h5>
                     {{ form.picture(class="form-control-file") }}
                     {% if form.picture.errors %}
                     {% for error in form.picture.errors %}
