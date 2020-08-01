@@ -16,7 +16,12 @@ MarkupSafe==1.0
 Pillow==7.1.0
 pycparser==2.18
 six==1.11.0
+<<<<<<< HEAD
 SQLAlchemy==1.3.0
 Werkzeug==0.14.1
+=======
+SQLAlchemy==1.2.7
+Werkzeug==0.15.3
+>>>>>>> master
 WTForms==2.1
 email-validator==1.1.1
