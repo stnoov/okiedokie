@@ -7,6 +7,7 @@ from flask_admin import Admin
 from flask_mail import Mail
 from flask_babel import Babel, gettext
 from okiedokie.config import Config
+from flask_admin.base import MenuLink
 
 
 
@@ -34,7 +35,7 @@ def create_app(config_class=Config):
     app.register_blueprint(users)
     app.register_blueprint(meetings)
     app.register_blueprint(main)
-
+    admin.add_link(MenuLink(name='Back Home', url='/', category='Links'))
     return app
 
 from okiedokie.models import User

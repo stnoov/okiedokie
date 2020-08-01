@@ -64,20 +64,20 @@ msgid "Drop Us a Message"
 msgstr "Напишите нам"
 
 #: templates/contact.html:17
-msgid "Your Name"
-msgstr "Ваше Имя"
+msgid "Name *"
+msgstr "Ваше Имя *"
 
 #: templates/contact.html:20
-msgid "Your Email"
-msgstr "Ваша почта"
+msgid "Email *"
+msgstr "Ваша почта *"
 
 #: templates/contact.html:23
 msgid "Send Message"
 msgstr "Отправить Сообщение"
 
 #: templates/contact.html:28
-msgid "Your Message"
-msgstr "Сообщение"
+msgid "Message *"
+msgstr "Сообщение *"
 
 #: templates/create_admin.html:22 templates/reset_request.html:21
 #: templates/sign_in.html:21 templates/sign_up.html:22
@@ -144,8 +144,8 @@ msgstr "Добавить новость"
 
 #: templates/home.html:69 templates/home.html:171 templates/reviews.html:37
 #: templates/reviews.html:45
-msgid "Title"
-msgstr "Заголовок"
+msgid "Title *"
+msgstr "Заголовок *"
 
 #: templates/home.html:71
 msgid "Text"
@@ -233,8 +233,8 @@ msgid "Account Info"
 msgstr "Информация об аккаунте"
 
 #: templates/profile.html:24
-msgid "Paid classes"
-msgstr "Оплаченные занятия"
+msgid "Available classes"
+msgstr "Доступные занятия"
 
 #: templates/profile.html:27
 msgid "Email Address"
@@ -249,8 +249,8 @@ msgid "Reset Password"
 msgstr "Восстановить пароль"
 
 #: templates/reviews.html:51 templates/reviews.html:59
-msgid "Review"
-msgstr "Отзыв"
+msgid "Review *"
+msgstr "Отзыв *"
 
 #: templates/sign_in.html:13
 msgid "Please Log In"

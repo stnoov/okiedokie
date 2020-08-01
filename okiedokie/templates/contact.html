@@ -6,7 +6,7 @@
 
 {% block body %}
     <div class="container contact-form">
-        <div>
+        <div class="text-center">
             <img class="contact-image" src="{{ url_for('static', filename='images/main.png') }}" alt="contact"/>
         </div>
         <form method="post" action="">
@@ -21,7 +21,7 @@
                                 <strong> {{ error }} </strong>
                             </div>
                         {% else %}
-                            {{ form.email(class="form-control form-control-lg mb-2", placeholder=gettext("Email")) }}
+                            {{ form.email(class="form-control form-control-lg mb-2", placeholder=gettext("Email *")) }}
                         {% endif %}
 
                     </div>
@@ -32,7 +32,7 @@
                                 <strong> {{ error }} </strong>
                             </div>
                         {% else %}
-                            {{ form.message(class="form-control form-control-lg mb-2", placeholder=gettext("Message")) }}
+                            {{ form.message(class="form-control form-control-lg mb-2", placeholder=gettext("Message *")) }}
                         {% endif %}
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                                 <strong> {{ error }} </strong>
                             </div>
                         {% else %}
-                            {{ form.name(class="form-control form-control-lg mb-2", placeholder=gettext("Name")) }}
+                            {{ form.name(class="form-control form-control-lg mb-2", placeholder=gettext("Name *")) }}
                         {% endif %}
                     </div>
                     </div>

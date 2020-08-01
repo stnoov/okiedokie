@@ -102,6 +102,8 @@ def reviews():
         db.session.commit()
         flash('Review has been submitted!', 'success')
         return redirect(url_for('main.reviews'))
+        flash('Review has been submitted!', 'danger')
+
     return render_template('reviews.html', reviews=reviews, form=form, current_date=current_date)
 
 

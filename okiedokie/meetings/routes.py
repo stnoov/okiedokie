@@ -44,7 +44,6 @@ def event(event_id):
 
 
 
-
 @meetings.route("/meetings/<int:event_id>/delete", methods=['GET', 'POST'])
 @login_required
 def delete_post(event_id):
