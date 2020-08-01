@@ -34,7 +34,7 @@ Reviews
 
                         {% if form.title.errors %}
                         {{ form.title(class="form-control form-control-lg is-invalid",
-                        placeholder=gettext("Title")) }}
+                        placeholder=gettext("Title *")) }}
                         <div class="mt-1 mb-4 alert alert-danger">
                             {% for error in form.title.errors %}
                             <strong> {{ error }} </strong>
@@ -42,13 +42,13 @@ Reviews
                         </div>
 
                         {% else %}
-                        {{ form.title(class="form-control form-control-lg mb-2", placeholder=gettext("Title")) }}
+                        {{ form.title(class="form-control form-control-lg mb-2", placeholder=gettext("Title *")) }}
                         {% endif %}
 
 
                         {% if form.text.errors %}
                         {{ form.text(class="form-control form-control-lg is-invalid",
-                        placeholder= gettext("Review")) }}
+                        placeholder= gettext("Review *")) }}
                         <div class="mt-1 mb-4 alert alert-danger">
                             {% for error in form.text.errors %}
                             <strong> {{ error }} </strong>
@@ -56,7 +56,7 @@ Reviews
                         </div>
 
                         {% else %}
-                        {{ form.text(class="form-control form-control-lg mb-2", placeholder=gettext("Review")) }}
+                        {{ form.text(class="form-control form-control-lg mb-2", placeholder=gettext("Review *")) }}
                         {% endif %}
 
                         {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}

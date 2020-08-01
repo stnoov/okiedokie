@@ -293,11 +293,15 @@ Home
                            class=" d-block d-sm-none btn btn-primary rounded -2" style="font-size: 1rem;">+</a>
                         {% endif %}
                     </td>
+                {% endif %}
+                {% if current_user.is_admin and event.deleted == False %}
+                    <td class="bg-white"><a href="{{ url_for('meetings.delete_post', event_id=event.id) }}" class="btn btn-danger">Delete</a></td>
                 </tr>
                 {% endif %}
                 {% endfor %}
                 </tbody>
             </table>
+
         </div>
     </div>
 </main>
