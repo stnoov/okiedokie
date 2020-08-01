@@ -62,52 +62,59 @@ table tr td,
     height: auto;
     max-height: 300px;
     overflow: auto;
-    direction:ltr;
+    direction: ltr;
 }
 
 .table-wrapper-scroll-y {
     display: block;
 }
 
-#style-3::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+#style-3::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
 }
 
-#style-3::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
+#style-3::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
 }
 
-#style-3::-webkit-scrollbar-thumb
-{
-	background-color: #0275d8;
+#style-3::-webkit-scrollbar-thumb {
+    background-color: #0275d8;
 }
 
 .content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+    background: #ffffff;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
 }
 
 .account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+    height: 125px;
+    width: 125px;
+    margin-right: 20px;
+    margin-bottom: 16px;
 }
 
 .account-heading {
-  font-size: 2.5rem;
+    font-size: 2.5rem;
 }
 
 .article-img {
-  height: 80px;
-  width: 80px;
-  margin-right: 16px;
+    height: 80px;
+    width: 80px;
+    margin-right: 16px;
 }
 
+.contact-image {
+    height: 280px;
+    width: 300px;
+}
+
+.languages {
+    height: 24px;
+    margin-left: 5px;
+    width: 24px;
+}

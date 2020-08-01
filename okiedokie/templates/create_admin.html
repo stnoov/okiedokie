@@ -19,30 +19,30 @@ Registration
             {% endfor %}
         </div>
    {% else %}
-      {{ form.email(class="form-control form-control-lg mb-2", placeholder="Email") }}
+      {{ form.email(class="form-control form-control-lg mb-2", placeholder=gettext("Email")) }}
    {% endif %}
 
 
 {% if form.password.errors %}
-          {{ form.password(class="form-control form-control-lg is-invalid", placeholder="Last name") }}
+          {{ form.password(class="form-control form-control-lg is-invalid", placeholder=gettext("Last Name")) }}
         <div class="mt-1 mb-4 alert alert-danger">
         {% for error in form.password.errors %}
           <strong> {{ error }} </strong>
           {% endfor %}
         </div>
     {% else %}
-    {{ form.password(class="form-control form-control-lg mb-2", placeholder="Password") }}
+    {{ form.password(class="form-control form-control-lg mb-2", placeholder= gettext("Password")) }}
     {% endif %}
 
 {% if form.confirm_password.errors %}
-          {{ form.confirm_password(class="form-control form-control-lg is-invalid", placeholder="Confirm Password") }}
+          {{ form.confirm_password(class="form-control form-control-lg is-invalid", placeholder = gettext("Confirm Password")) }}
         <div class="mt-1 mb-4 alert alert-danger">
         {% for error in form.confirm_password.errors %}
           <strong> {{ error }} </strong>
           {% endfor %}
         </div>
     {% else %}
-    {{ form.confirm_password(class="form-control form-control-lg mb-2", placeholder="Confirm Password") }}
+    {{ form.confirm_password(class="form-control form-control-lg mb-2", placeholder=gettext("Confirm Password")) }}
     {% endif %}
 
     </fieldset>

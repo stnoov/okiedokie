@@ -6,25 +6,24 @@ Okie Points
 
 {% block body %}
 <div class="container mt-5 text-center">
-    <p class="h2 ">How to earn Okie Points?</p>
+    <p class="h2 ">{{ _('How to earn Okie Points') }}?</p>
 
     <table class="table">
         <tbody>
         <tr>
-            <td>Share from our <a href="https://vk.com/public195995603">OkieDokie!</a> group on VK or Facebook</td>
+            <td>{{ _('Share from our') }}  <a href="https://vk.com/public195995603">OkieDokie!</a> {{ _('group on VK or Facebook') }} </td>
             <td>1 point</td>
         </tr>
         <tr>
-            <td>New member invited by you in meeting</td>
+            <td>{{ _('New member invited by you in meeting') }}</td>
             <td>1 point</td>
         </tr>
         <tr>
-            <td>Victory in a game</td>
+            <td>{{ _('Victory in a game') }}</td>
             <td>1 point</td>
         </tr>
         <tr>
             <td></td>
-            <td><small>The list will be updated</small></td>
         </tr>
         </tbody>
     </table>
@@ -32,11 +31,11 @@ Okie Points
         <div class="col">
             <table class="table">
                 <thead>
-                <div class="mb-2 h1">Top Users</div>
+                <div class="mb-2 h1">{{ _('Top Users') }} </div>
                 </thead>
                 {% for user in top_users %}
                 <tr class="bg-info rounded text-light border-bottom border-light h4">
-           frf         <td>{{ loop.index }}</td>
+                    <td>{{ loop.index }}</td>
                     <td class="h4 text-left">{{ user.first_name }} {{ user.last_name }}</td>
                     <td class="h4">{{ user.points }}</td>
                 </tr>
@@ -44,8 +43,8 @@ Okie Points
             </table>
         </div>
         <div class="col">
-            <p class="h1">New bonus system!</p>
-            <p class="h4 mt-4">Earn 5 Okie Points and get free individual English lesson!</p>
+            <p class="h1">{{ _('New bonus system') }}!</p>
+            <p class="h4 mt-4">{{ _('Earn 5 Okie Points and get free individual English lesson') }}!</p>
         </div>
     </div>
 </div>
