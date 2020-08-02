@@ -39,7 +39,7 @@ def notification():
         payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'], confirmed=True)
         db.session.add(payment)
         db.session.commit()
-        user = User.query.filter_by(id=payment.user_id).first()
+        user = User.query.filter_by(id=request.form['label']).first()
         if payment.user_id:
             if payment.product == '1 class':
                 user.paid_classes = user.paid_classes + 1
