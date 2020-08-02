@@ -41,11 +41,11 @@ def notification():
         db.session.commit()
         user = User.query.filter_by(id=int(request.form['label'])).first()
         if payment.user_id:
-            if payment.product == '1 class':
+            if request.form['short-dest'] == '1 class':
                 user.paid_classes = user.paid_classes + 1
-            elif payment.product == '5 classes':
+            elif request.form['short-dest'] == '5 classes':
                 user.paid_classes = user.paid_classes + 5
-            elif payment.product == '10 classes':
+            elif request.form['short-dest'] == '10 classes':
                 user.paid_classes = user.paid_classes + 10
             db.session.commit()
 
