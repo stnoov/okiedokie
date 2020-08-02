@@ -32,8 +32,8 @@ def notification():
         print( request.form['sha1_hash'], hash, 'FAIL', file=sys.stderr)
         exit()
 
-    payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class',
-                user_id=request.form['label'])
+    payment_date = request.form['datetime'](*[int(v) for v in request.form['datetime'].replace('T', '-').replace(':', '-').split('-')])
+    payment = Payments(date=payment_date, amount=request.form['amount'], product='1 class', user_id=request.form['label'])
     db.session.add(payment)
     db.session.commit()
 

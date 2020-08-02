@@ -20,5 +20,6 @@ class ContactForm(FlaskForm):
     email = EmailField('Email', validators=[DataRequired()])
     message = TextAreaField('Message',validators=[DataRequired()])
     send = SubmitField('Send')
+
 class YandexPaymentForm(FlaskForm):
     submit = SubmitField('Pay')
