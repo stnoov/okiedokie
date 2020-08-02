@@ -29,7 +29,7 @@ def notification():
     hash = hashlib.sha1(str(hash2).encode('utf-8')).hexdigest()
 
     if ( request.form['sha1_hash'] != hash ) or ( request.form['codepro'] ):
-        print('Fail!', file=sys.stderr)
+        print( request.form['sha1_hash'], hash, 'FAIL', file=sys.stderr)
         exit()
 
     payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=request.form['targets'],
