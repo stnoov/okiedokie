@@ -36,12 +36,13 @@ def notification():
         db.session.add(payment)
         db.session.commit()
         user = User.query.filter_by(id=payment.user_id).first()
-        if payment.product == '1 class':
-            user.paid_classes = user.paid_classes + 1
-        elif payment.product == '3 classes':
-            user.paid_classes = user.paid_classes + 3
-        elif payment.product == '5 classes':
-            user.paid_classes = user.paid_classes + 3
-        db.session.commit()
+        if payment.user_id:
+            if payment.product == '1 class':
+                user.paid_classes = user.paid_classes + 1
+            elif payment.product == '3 classes':
+                user.paid_classes = user.paid_classes + 3
+            elif payment.product == '5 classes':
+                user.paid_classes = user.paid_classes + 3
+            db.session.commit()
 
     return 'Payment in process'
