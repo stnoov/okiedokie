@@ -36,7 +36,7 @@ def notification():
         db.session.commit()
         exit()
     else:
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'], confirmed=True)
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=int(request.form['label']), confirmed=True)
         db.session.add(payment)
         db.session.commit()
         user = User.query.filter_by(id=int(request.form['label'])).first()
