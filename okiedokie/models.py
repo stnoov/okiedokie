@@ -32,6 +32,7 @@ class User(db.Model, UserMixin):
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
     is_admin = db.Column(db.Boolean, default=False)
     reviews = db.relationship('Reviews', backref='author', lazy=True)
+    payments = db.relationship('Payments', backref='payer', lazy=True)
     signed_users = db.relationship('Events', secondary=signed_users, lazy='subquery',
         backref=db.backref('signed_users', lazy=True))
 
@@ -90,6 +91,15 @@ class Events(db.Model):
     deleted = db.Column(db.Boolean, nullable=False, default=False)
 
 
+class Payments(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.DateTime, nullable=False)
+    amount = db.Column(db.Integer, nullable=False)
+    product = db.Column(db.String(255), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+
+
 class Controller(ModelView):
     def is_accessible(self):
         if current_user.is_authenticated and current_user.is_admin:
@@ -102,6 +112,7 @@ admin.add_view(Controller(User, db.session))
 admin.add_view(Controller(Events, db.session))
 admin.add_view(Controller(Reviews, db.session))
 admin.add_view(Controller(News, db.session))
+admin.add_view(Controller(Payments, db.session))
 
 
 
