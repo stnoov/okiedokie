@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request
 from flask_login import current_user
 from okiedokie import db
-from okiedokie.models import Payments
+from okiedokie.models import Payments, User
 import hashlib
 import sys
 
@@ -31,9 +31,17 @@ def notification():
     if ( str(request.form['sha1_hash']) != str(hash) ) or ( request.form['codepro'] == True):
         print( request.form['sha1_hash'], hash, 'FAIL', file=sys.stderr)
         exit()
-
-    payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'])
-    db.session.add(payment)
-    db.session.commit()
+    else:
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'])
+        db.session.add(payment)
+        db.session.commit()
+        user = User.query.filter_by(id=payment.user_id).first()
+        if payment.product == '1 class':
+            user.paid_classes = user.paid_classes + 1
+        elif payment.product == '3 classes':
+            user.paid_classes = user.paid_classes + 3
+        elif payment.product == '5 classes':
+            user.paid_classes = user.paid_classes + 3
+        db.session.commit()
 
     return 'Payment in process'
