@@ -14,7 +14,7 @@ def payment():
     return render_template('payment.html',user_email=current_user.id)
 
 
-@ya_payments.route('/ya_payment/success')
+@ya_payments.route('/payment/success')
 def success():
     return "Оплата прошла успешно"
 
