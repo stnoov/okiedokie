@@ -12,7 +12,7 @@ ya_payments = Blueprint('ya_payments', __name__)
 
 @ya_payments.route('/products')
 @login_required
-def products():
+def payment():
     return render_template('products.html',user_id=current_user.id)
 
 
