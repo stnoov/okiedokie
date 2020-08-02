@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, request
 from flask_login import current_user
 from okiedokie import db
 from okiedokie.models import Payments
+import pandas as pd
 import hashlib
 import sys
 
@@ -32,7 +33,7 @@ def notification():
         print( request.form['sha1_hash'], hash, 'FAIL', file=sys.stderr)
         exit()
 
-    payment_date = request.form['datetime'](*[int(v) for v in request.form['datetime'].replace('T', '-').replace(':', '-').split('-')])
+    payment_date = request.form['datetime'].replace("T", " ").replace("Z", "")
     payment = Payments(date=payment_date, amount=request.form['amount'], product='1 class', user_id=request.form['label'])
     db.session.add(payment)
     db.session.commit()
