@@ -13,7 +13,7 @@ ya_payments = Blueprint('ya_payments', __name__)
 @ya_payments.route('/products')
 @login_required
 def payment():
-    return render_template('products.html',user_id=current_user.id)
+    return render_template('products.html', user_id=current_user.id)
 
 
 @ya_payments.route('/payment/success')
@@ -39,7 +39,7 @@ def notification():
         payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'], confirmed=True)
         db.session.add(payment)
         db.session.commit()
-        user = User.query.filter_by(id=request.form['label']).first()
+        user = User.query.filter_by(id=int(request.form['label'])).first()
         if payment.user_id:
             if payment.product == '1 class':
                 user.paid_classes = user.paid_classes + 1
