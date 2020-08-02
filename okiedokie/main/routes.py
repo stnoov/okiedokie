@@ -6,7 +6,7 @@ from okiedokie import db, babel
 from okiedokie.models import Events, Reviews, News, User
 from flask_login import current_user
 from okiedokie.meetings.forms import CreateEventForm
-from okiedokie.main.forms import YandexPaymentForm, AddReviewForm, CreateNewsForm, ContactForm
+from okiedokie.main.forms import AddReviewForm, CreateNewsForm, ContactForm
 from okiedokie.main.utils import send_contact_message
 
 
@@ -70,17 +70,6 @@ def contact():
         return redirect(url_for('main.contact'))
 
     return render_template('contact.html', form=form)
-
-
-@main.route('/products', methods=['GET', 'POST'])
-def products():
-    return render_template('products.html')
-
-
-@main.route('/payment', methods=['GET', 'POST'])
-def payment():
-    form = YandexPaymentForm()
-    return render_template('payment.html', form=form)
 
 
 @main.route('/okiepoints')
