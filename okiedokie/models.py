@@ -96,6 +96,7 @@ class Payments(db.Model):
     date = db.Column(db.String(255))
     amount = db.Column(db.Integer)
     product = db.Column(db.String(255))
+    confirmed = db.Column(db.Boolean)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
