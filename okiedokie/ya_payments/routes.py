@@ -31,12 +31,12 @@ def notification():
     hash = hashlib.sha1(str(hash2).encode('utf-8')).hexdigest()
 
     if ( str(request.form['sha1_hash']) != str(hash) ) or ( request.form['codepro'] == True):
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=request.form['formcomment'], user_id=request.form['label'], confirmed=False)
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'], confirmed=False)
         db.session.add(payment)
         db.session.commit()
         exit()
     else:
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=request.form['formcomment'], user_id=request.form['label'], confirmed=True)
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=request.form['label'], confirmed=True)
         db.session.add(payment)
         db.session.commit()
         user = User.query.filter_by(id=payment.user_id).first()
