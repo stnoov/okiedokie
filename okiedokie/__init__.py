@@ -32,11 +32,14 @@ def create_app(config_class=Config):
     from okiedokie.users.routes import users
     from okiedokie.meetings.routes import meetings
     from okiedokie.main.routes import main
+    from okiedokie.payments.routes import payments
     app.register_blueprint(users)
     app.register_blueprint(meetings)
     app.register_blueprint(main)
+    app.register_blueprint(payments)
     admin.add_link(MenuLink(name='Back Home', url='/', category='Links'))
     return app
+
 
 from okiedokie.models import User
 def init_db():

@@ -5,16 +5,14 @@ Payment
 
 {% block body %}
 <div class="container">
-<form class="form-signin" method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
-  {{ form.hidden_tag() }}
-      <fieldset class="form-group">
-           <input type="hidden" name="receiver" value="4100115520088790">
-           <input type="hidden" name="quickpay-form" value="donate">
-           <input type="hidden" name="sum" value="4568.25" data-type="number">
-           <input type="hidden" name="targets" value="Payment">
-            6AuGqoUNv64CdSVdVniLEMmI
-           {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
-      </fieldset>
+<form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+    <input type="hidden" name="receiver" value="4100115666126622">
+    <input type="hidden" name="label" value={{ user_email }}>
+    <input type="hidden" name="quickpay-form" value="donate">
+    <input type="hidden" name="targets" value="1 class">
+    <input type="hidden" name="sum" value="150" data-type="number">
+    <input type="hidden" name="paymentType" value="AC">
+    <input type="submit" class="btn btn-primary" value="Оплатить">
 </form>
 </div>
 {% endblock body %}
