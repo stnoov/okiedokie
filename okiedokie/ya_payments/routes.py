@@ -2,7 +2,6 @@ from flask import Blueprint, render_template, request
 from flask_login import current_user
 from okiedokie import db
 from okiedokie.models import Payments
-import pandas as pd
 import hashlib
 import sys
 
