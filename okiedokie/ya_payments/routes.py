@@ -21,7 +21,7 @@ def success():
     return "Оплата прошла успешно"
 
 
-@ya_payments.route('/ya_payment/notifications', methods=['POST'])
+@ya_payments.route('/payment/notifications', methods=['POST'])
 def notification():
     hash2 = request.form['notification_type'] + '&' + request.form['operation_id'] \
             + '&' + request.form['amount'] + '&' + request.form['currency'] + '&' + \
