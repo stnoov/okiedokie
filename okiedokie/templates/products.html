@@ -31,7 +31,7 @@
                         <input type="hidden" name="sum" value="150" data-type="number">
                         <input type="hidden" name="paymentType" value="AC">
                         <input type="hidden" name="formcomment" value="1 class">
-                        <input type="hidden" name="successURL" value="http://www.okiedokie.club/payment/success">
+                        <input type="hidden" name="successURL" value="http://http://164.90.217.142/payment/success">
                         <input type="submit" class="btn btn-primary" value="Оплатить">
                     </form>
                 </div>
@@ -48,6 +48,17 @@
                         <li>Priority email support</li>
                         <li>Help center access</li>
                     </ul>
+                    <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                        <input type="hidden" name="receiver" value="4100115666126622">
+                        <input type="hidden" name="label" value={{ user_id }}>
+                        <input type="hidden" name="quickpay-form" value="shop">
+                        <input type="hidden" name="targets" value="1 class">
+                        <input type="hidden" name="sum" value="150" data-type="number">
+                        <input type="hidden" name="paymentType" value="AC">
+                        <input type="hidden" name="formcomment" value="5 classes">
+                        <input type="hidden" name="successURL" value="http://http://164.90.217.142/payment/success">
+                        <input type="submit" class="btn btn-primary" value="Оплатить">
+                    </form>
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
@@ -62,6 +73,17 @@
                         <li>Phone and email support</li>
                         <li>Help center access</li>
                     </ul>
+                    <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
+                        <input type="hidden" name="receiver" value="4100115666126622">
+                        <input type="hidden" name="label" value={{ user_id }}>
+                        <input type="hidden" name="quickpay-form" value="shop">
+                        <input type="hidden" name="targets" value="10 classes">
+                        <input type="hidden" name="sum" value="150" data-type="number">
+                        <input type="hidden" name="paymentType" value="AC">
+                        <input type="hidden" name="formcomment" value="1 class">
+                        <input type="hidden" name="successURL" value="http://http://164.90.217.142/payment/success">
+                        <input type="submit" class="btn btn-primary" value="Оплатить">
+                    </form>
                 </div>
             </div>
         </div>
