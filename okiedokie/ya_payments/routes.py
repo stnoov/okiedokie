@@ -28,7 +28,7 @@ def notification():
 
     hash = hashlib.sha1(str(hash2).encode('utf-8')).hexdigest()
 
-    if ( request.form['sha1_hash'] != hash ) or ( request.form['codepro'] ) or ( request.form['unaccepted'] ):
+    if ( request.form['sha1_hash'] != hash ) or ( request.form['codepro'] ):
         print('Fail!', file=sys.stderr)
         exit()
 
