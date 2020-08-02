@@ -93,7 +93,7 @@ class Events(db.Model):
 
 class Payments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    date = db.Column(db.DateTime)
+    date = db.Column(db.String(255))
     amount = db.Column(db.Integer)
     product = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
