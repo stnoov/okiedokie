@@ -38,16 +38,8 @@ def notification():
     else:
         payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product='1 class', user_id=int(request.form['label']), confirmed=True)
         user = User.query.filter_by(id=int(request.form['label'])).first()
-        if request.form['amount'] == str(9.8):
-            user.paid_classes = user.paid_classes + 1
-        elif request.form['amount'] == str(14.7):
-            user.paid_classes = user.paid_classes + 5
-        elif request.form['amount'] == 19.8:
-            user.paid_classes = user.paid_classes + 10
+        user.paid_classes = user.paid_classes + 50
         db.session.add(payment)
         db.session.commit()
-
-
-
 
     return 'Payment in process'
