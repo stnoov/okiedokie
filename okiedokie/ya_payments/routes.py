@@ -6,20 +6,20 @@ import hashlib
 import sys
 
 
-payments = Blueprint('payments', __name__)
+ya_payments = Blueprint('ya_payments', __name__)
 
 
-@payments.route('/ya_payment')
+@ya_payments.route('/ya_payment')
 def payment():
     return render_template('payment.html',user_email=current_user.id)
 
 
-@payments.route('/ya_payment/success')
+@ya_payments.route('/ya_payment/success')
 def success():
     return "Оплата прошла успешно"
 
 
-@payments.route('/ya_payment/notifications', methods=['POST'])
+@ya_payments.route('/ya_payment/notifications', methods=['POST'])
 def notification():
     hash2 = request.form['notification_type'] + '&' + request.form['operation_id'] \
             + '&' + request.form['amount'] + '&' + request.form['currency'] + '&' + \
