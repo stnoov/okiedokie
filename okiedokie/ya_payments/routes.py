@@ -32,6 +32,7 @@ def notification():
     if ( str(request.form['sha1_hash']) != str(hash) ) or ( request.form['codepro'] == True):
         print(float(request.form['amount']))
         print(str(request.form['amount']))
+        return request.form['amount']
         # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
         # db.session.add(payment)
         # db.session.commit()
@@ -39,6 +40,7 @@ def notification():
     else:
         print(float(request.form['amount']))
         print(str(request.form['amount']))
+        return request.form['amount']
         # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=int(request.form['label']), confirmed=True)
         # user = User.query.filter_by(id=int(request.form['label'])).first()
         # db.session.add(payment)
