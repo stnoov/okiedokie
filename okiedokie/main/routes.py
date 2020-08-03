@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app
+from flask import Blueprint, current_app, session
 import datetime, sys
 from flask import render_template, url_for, flash, redirect, request
 from flask_login import login_required
@@ -44,17 +44,23 @@ def home():
     return render_template('home.html', events=events, current_date=current_date, form=form, news_form=news_form, news=news)
 
 
-@main.route('/switch_language_ru')
-def switch_language_ru():
-    current_app.config['BABEL_DEFAULT_LOCALE'] = 'ru'
+@main.route('/language/<language>')
+def set_language(language=None):
+    session['language'] = language
     return redirect(url_for('main.home'))
 
 
-@main.route('/switch_language_en')
-def switch_language_en():
-    current_app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-    return redirect(url_for('main.home'))
-
+@babel.localeselector
+def get_locale():
+    # if the user has set up the language manually it will be stored in the session,
+    # so we use the locale from the user settings
+    try:
+        language = session['language']
+    except KeyError:
+        language = None
+    if language is not None:
+        return language
+    return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys())
 
 @main.route('/about')
 def about():

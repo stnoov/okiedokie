@@ -5,7 +5,7 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_admin import Admin
 from flask_mail import Mail
-from flask_babel import Babel, gettext
+from flask_babelex import Babel, gettext
 from okiedokie.config import Config
 from flask_admin.base import MenuLink
 

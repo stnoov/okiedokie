@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block link %}
+
+{% endblock link %}
+{% block title %}
+Thank you!
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="jumbotron text-center">
+  <h1 class="display-3">{{ _('Thank You!') }}</h1>
+  <p class="lead"> {{ _('Your payment is processing. It might take up to two hours for classes to accrued ') }}</p>
+  <hr>
+  <p>
+    {{ _(' Having trouble? ') }} <a href="{{ url_for('main.contact') }}">{{ _(' Contact us ') }}</a>
+  </p>
+  <p class="lead">
+    <a class="btn btn-primary btn-sm" href="{{ url_for('main.home') }}" role="button">{{ _(' Continue to homepage') }}</a>
+  </p>
+</div>
+
+
+{% endblock body %}
