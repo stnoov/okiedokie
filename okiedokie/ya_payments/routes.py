@@ -34,19 +34,19 @@ def notification():
         print(int(rounded))
         print(float(request.form['amount']))
         print(str(request.form['amount']))
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], user_id=request.form['label'], confirmed=False)
         db.session.add(payment)
         db.session.commit()
         exit()
     else:
         rounded = round(float(request.form['amount']))
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=True)
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], user_id=request.form['label'], confirmed=True)
         user = User.query.filter_by(id=int(request.form['label'])).first()
         db.session.add(payment)
         db.session.commit()
         print(payment.product)
         print(request.form['label'])
-        if int(rounded) == int(10):
+        if int(rounded) == int(157):
             print(rounded)
             user.paid_classes = user.paid_classes + 1
             payment.product = '1 class'
