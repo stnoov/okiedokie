@@ -13,74 +13,80 @@
         <div class="card-deck mb-3 text-center">
             <div class="card mb-4 box-shadow">
                 <div class="card-header bg-success text-white">
-                    <h4 class="my-0 font-weight-normal">One class</h4>
+                    <h4 class="my-0 font-weight-normal"> {{ _(' 1 Class ') }}</h4>
                 </div>
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">150₽</h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
+                        <li>{{ _('Meet and chat with new people') }}</li>
+                        <li>{{ _('Watch cartoons and films') }}</li>
+                        <li>{{ _('Repeat grammar') }}</li>
+                        <li>{{ _('Get positive emotions') }}</li>
                     </ul>
+                    {% if current_user.is_authenticated %}
                     <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
                         <input type="hidden" name="receiver" value="4100115666126622">
                         <input type="hidden" name="quickpay-form" value="small">
                         <input type="hidden" name="targets" value="1 class">
                         <input type="hidden" name="paymentType" value="AC">
                         <input type="hidden" name="sum" value="160" data-type="number">
-                        <input type="hidden" name="label" value={{ user_id }}>
-                        <input type="hidden" name="successURL" value="http://164.90.217.142/payment/success">
-                        <input type="submit" class="btn btn-primary" value="Оплатить">
+                        <input type="hidden" name="label" value={{ current_user.id }}>
+                        <input type="hidden" name="successURL" value="http://www.okiedokie.club/payment/success">
+                        <input type="submit" class="btn btn-lg btn-block btn-primary" value="Оплатить">
                     </form>
+                    {% endif %}
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
                 <div class="card-header bg-success text-white">
-                    <h4 class="my-0 font-weight-normal">5 Classes</h4>
+                    <h4 class="my-0 font-weight-normal">{{ _(' 5 Classes ') }}</h4>
                 </div>
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">750₽</h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>20 users included</li>
-                        <li>10 GB of storage</li>
-                        <li>Priority email support</li>
-                        <li>Help center access</li>
+                        <li>{{ _('Meet and chat with new people') }}</li>
+                        <li>{{ _('Watch cartoons and films') }}</li>
+                        <li>{{ _('Repeat grammar') }}</li>
+                        <li>{{ _('Get positive emotions') }}</li>
                     </ul>
+                    {% if current_user.is_authenticated %}
                     <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
                         <input type="hidden" name="receiver" value="4100115666126622">
                         <input type="hidden" name="quickpay-form" value="small">
                         <input type="hidden" name="targets" value="5 classes">
                         <input type="hidden" name="paymentType" value="AC">
                         <input type="hidden" name="sum" value="750" data-type="number">
-                        <input type="hidden" name="label" value={{ user_id }}>
-                        <input type="hidden" name="successURL" value="http://164.90.217.142/payment/success">
-                        <input type="submit" class="btn btn-primary" value="Оплатить">
+                        <input type="hidden" name="label" value={{ current_user.id }}>
+                        <input type="hidden" name="successURL" value="http://www.okiedokie.club/payment/success">
+                        <input type="submit" class="btn btn-lg btn-block btn-primary" value="Оплатить">
                     </form>
+                    {% endif %}
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
                 <div class="card-header bg-success text-white">
-                    <h4 class="my-0 font-weight-normal">10 Classes Pass</h4>
+                    <h4 class="my-0 font-weight-normal">{{ _(' 10 Classes ') }}</h4>
                 </div>
                 <div class="card-body">
                     <h1 class="card-title pricing-card-title">1400₽</h1>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>30 users included</li>
-                        <li>15 GB of storage</li>
-                        <li>Phone and email support</li>
-                        <li>Help center access</li>
+                        <li>{{ _('Meet and chat with new people') }}</li>
+                        <li>{{ _('Watch cartoons and films') }}</li>
+                        <li>{{ _('Repeat grammar') }}</li>
+                        <li>{{ _('Get positive emotions') }}</li>
                     </ul>
+                    {% if current_user.is_authenticated %}
                     <form method="POST" action="https://money.yandex.ru/quickpay/confirm.xml">
                         <input type="hidden" name="receiver" value="4100115666126622">
                         <input type="hidden" name="quickpay-form" value="small">
                         <input type="hidden" name="targets" value="10 classes">
                         <input type="hidden" name="paymentType" value="AC">
                         <input type="hidden" name="sum" value="1400" data-type="number">
-                        <input type="hidden" name="label" value={{ user_id }}>
-                        <input type="hidden" name="successURL" value="http://164.90.217.142/payment/success">
-                        <input type="submit" class="btn btn-primary" value="Оплатить">
+                        <input type="hidden" name="label" value={{ current_user.id }}>
+                        <input type="hidden" name="successURL" value="http://www.okiedokie.club/payment/success">
+                        <input type="submit" class="btn btn-lg btn-block btn-primary" value="Оплатить">
                     </form>
+                    {% endif %}
                 </div>
             </div>
         </div>

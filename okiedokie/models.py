@@ -100,7 +100,6 @@ class Payments(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 
-
 class Controller(ModelView):
     def is_accessible(self):
         if current_user.is_authenticated and current_user.is_admin:

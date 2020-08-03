@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, current_app, session
 from flask_login import current_user
 from okiedokie import db
 from okiedokie.models import Payments, User
@@ -11,14 +11,13 @@ ya_payments = Blueprint('ya_payments', __name__)
 
 
 @ya_payments.route('/products')
-@login_required
 def payment():
-    return render_template('products.html', user_id=current_user.id)
+    return render_template('products.html')
 
 
 @ya_payments.route('/payment/success')
 def success():
-    return "Оплата прошла успешно"
+    return render_template('success.html')
 
 
 @ya_payments.route('/payment/notifications', methods=['POST'])

@@ -39,8 +39,8 @@
             <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('admin.index') }}">Admin</a></li>
             {% endif %}
              <li class="nav-item"><a class="ml-3 text-decoration-none" >
-                 <a href="{{ url_for('main.switch_language_en') }}"> <img class="languages" src="{{ url_for('static', filename='images/english_lan.png') }}"> </a>
-                 <a href="{{ url_for('main.switch_language_ru') }}"> <img class="languages" src="{{ url_for('static', filename='images/russian_lan.png') }}"> </a>
+                     <a href="{{ url_for('main.set_language', language='ru') }}" >RU</a>
+                     <a href="{{ url_for('main.set_language', language='en') }}" >EN</a>
              </a></li>
         </ul>
     </div>

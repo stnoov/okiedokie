@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, current_app, session
 import datetime
 from flask import render_template, url_for, flash, redirect, request
 from okiedokie import db, bcrypt
