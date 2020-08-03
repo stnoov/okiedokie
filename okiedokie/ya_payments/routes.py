@@ -48,7 +48,15 @@ def notification():
         print(request.form['label'])
         if int(rounded) == int(10):
             user.paid_classes = user.paid_classes + 1
-            print(rounded)
+            payment.product = '1 class'
+            db.session.commit()
+        elif int(rounded) == int(735):
+            user.paid_classes = user.paid_classes + 5
+            payment.product = '5 classes'
+            db.session.commit()
+        elif int(rounded) == int(1372):
+            user.paid_classes = user.paid_classes + 10
+            payment.product = '10 classes'
             db.session.commit()
         print('after')
         return request.form['amount']
