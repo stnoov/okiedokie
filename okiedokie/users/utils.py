@@ -9,7 +9,7 @@ from flask_mail import Message
 
 def send_reset_email(user):
     token = user.get_reset_token()
-    msg = Message('Password Reset Request', sender='noreply@okiedokie.com',
+    msg = Message('Password Reset Request', sender='englishclub.okiedokie@okiedokie.com',
                   recipients=[user.email])
     msg.body = f'''To reset your password, visit following link:
 
@@ -22,7 +22,7 @@ If you did not make your request, please ignore this email and no changes will b
 
 def send_confirmation_email(user):
     token = user.get_confirmation_token()
-    msg = Message('Please confirm your email.', sender='noreply@okiedokie.com',
+    msg = Message('Please confirm your email.', sender='englishclub.okiedokie@okiedokie.com',
                   recipients=[user.email])
     msg.body =\
     f'''Thank you for registration. Use the following link to activate your account:

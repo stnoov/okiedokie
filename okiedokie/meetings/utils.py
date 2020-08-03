@@ -3,7 +3,7 @@ from flask_mail import Message
 
 
 def send_notification_email(user, event):
-    msg = Message('Запись на занятие', sender='noreply@okiedokie.com',
+    msg = Message('Запись на занятие', sender='englishclub.okiedokie@okiedokie.com',
                   recipients=[user.email])
     msg.body = \
         f'''

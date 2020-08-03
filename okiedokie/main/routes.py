@@ -67,6 +67,8 @@ def about():
     return render_template('about.html')
 
 
+
+
 @main.route('/contact', methods=['GET', 'POST'])
 def contact():
     form = ContactForm()
