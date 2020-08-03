@@ -49,5 +49,6 @@ def notification():
         if int(rounded) == int(10):
             user.paid_classes = user.paid_classes + 1
             print(rounded)
+            db.session.commit()
         print('after')
         return request.form['amount']

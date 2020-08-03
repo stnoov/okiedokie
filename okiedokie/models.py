@@ -30,6 +30,7 @@ class User(db.Model, UserMixin):
     attended_classes = db.Column(db.Integer, default=0)
     created_at = db.Column(db.DateTime, default=datetime.now())
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
+    balance = db.Column(db.Integer, default=0)
     is_admin = db.Column(db.Boolean, default=False)
     reviews = db.relationship('Reviews', backref='author', lazy=True)
     payments = db.relationship('Payments', backref='payer', lazy=True)
