@@ -30,18 +30,21 @@ def notification():
 
     hash = hashlib.sha1(str(hash2).encode('utf-8')).hexdigest()
     if ( str(request.form['sha1_hash']) != str(hash) ) or ( request.form['codepro'] == True):
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
-        db.session.add(payment)
-        db.session.commit()
-        exit()
+        print(int(request.form['amount']))
+        print(float(request.form['amount']))
+        print(str(request.form['amount']))
+        # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
+        # db.session.add(payment)
+        # db.session.commit()
+        # exit()
     else:
-        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=int(request.form['label']), confirmed=True)
-        user = User.query.filter_by(id=int(request.form['label'])).first()
-        db.session.add(payment)
-        db.session.commit()
-        print(payment.product)
-        if payment.product == str(9.80):
-            user.paid_classes = user.paid_classes + 1
-        elif payment.product == '14.70':
-            user.paid_classes = user.paid_classes + 5
-    return 'Payment in process'
+        print(int(request.form['amount']))
+        print(float(request.form['amount']))
+        print(str(request.form['amount']))
+        # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=int(request.form['label']), confirmed=True)
+        # user = User.query.filter_by(id=int(request.form['label'])).first()
+        # db.session.add(payment)
+        # db.session.commit()
+        # print(payment.product)
+        # user.paid_classes = user.paid_classes + 5
+
