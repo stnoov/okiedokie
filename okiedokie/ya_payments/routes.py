@@ -30,9 +30,11 @@ def notification():
 
     hash = hashlib.sha1(str(hash2).encode('utf-8')).hexdigest()
     if ( str(request.form['sha1_hash']) != str(hash) ) or ( request.form['codepro'] == True):
+        rounded = round(float(request.form['amount']))
         print(float(request.form['amount']))
         print(str(request.form['amount']))
         return request.form['amount']
+        
         # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
         # db.session.add(payment)
         # db.session.commit()
