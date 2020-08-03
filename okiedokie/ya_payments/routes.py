@@ -42,9 +42,8 @@ def notification():
         # exit()
     else:
         rounded = round(float(request.form['amount']))
-        print(int(rounded))
-        print(float(request.form['amount']))
-        print(str(request.form['amount']))
+        if rounded < 1000:
+            print(rounded)
         return request.form['amount']
         # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=int(request.form['label']), confirmed=True)
         # user = User.query.filter_by(id=int(request.form['label'])).first()
