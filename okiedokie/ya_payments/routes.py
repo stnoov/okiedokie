@@ -47,10 +47,12 @@ def notification():
         print(payment.product)
         print(request.form['label'])
         if int(rounded) == int(157):
+            print(rounded)
             user.paid_classes = user.paid_classes + 1
             payment.product = '1 class'
             db.session.commit()
         elif int(rounded) == int(735):
+            print(rounded)
             user.paid_classes = user.paid_classes + 5
             payment.product = '5 classes'
             db.session.commit()
