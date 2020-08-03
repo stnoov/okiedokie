@@ -34,21 +34,20 @@ def notification():
         print(int(rounded))
         print(float(request.form['amount']))
         print(str(request.form['amount']))
-        return request.form['amount']
-
-        # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
-        # db.session.add(payment)
-        # db.session.commit()
-        # exit()
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=request.form['label'], confirmed=False)
+        db.session.add(payment)
+        db.session.commit()
+        exit()
     else:
         rounded = round(float(request.form['amount']))
-        if rounded < 1000:
+        payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=int(request.form['label']), confirmed=True)
+        user = User.query.filter_by(id=int(request.form['label'])).first()
+        db.session.add(payment)
+        db.session.commit()
+        print(payment.product)
+        print('before')
+        if rounded == 10:
+            user.paid_classes = user.paid_classes + 1
             print(rounded)
+        print('after')
         return request.form['amount']
-        # payment = Payments(date=request.form['datetime'], amount=request.form['amount'], product=str(request.form['amount']), user_id=int(request.form['label']), confirmed=True)
-        # user = User.query.filter_by(id=int(request.form['label'])).first()
-        # db.session.add(payment)
-        # db.session.commit()
-        # print(payment.product)
-        # user.paid_classes = user.paid_classes + 5
-
