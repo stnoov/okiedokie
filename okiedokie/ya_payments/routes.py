@@ -40,7 +40,8 @@ def notification():
         db.session.add(payment)
         db.session.commit()
         print(payment.product)
-        if payment.product == '9.8':
+        if payment.product == '9.80':
             user.paid_classes = user.paid_classes + 1
-
+        elif payment.product == '14.70':
+            user.paid_classes = user.paid_classes + 5
     return 'Payment in process'
