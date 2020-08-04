@@ -1,3 +1,5 @@
+from sqlite3 import IntegrityError
+
 from flask import Blueprint, current_app, session
 import datetime
 from flask import render_template, url_for, flash, redirect, request
@@ -10,6 +12,16 @@ from okiedokie.users.utils import send_reset_email, send_confirmation_email, sav
 
 users = Blueprint('users', __name__)
 
+
+@users.route('/resend_confirmation')
+def resend_email_confirmation(email):
+    try:
+        send_confirmation_email(current_user.email)
+        flash('Email sent to confirm your email address.  Please check your email!', 'success')
+    except IntegrityError:
+        flash('Error!  Unable to send email to confirm your email address.', 'error')
+
+    return redirect(url_for('users.profile'))
 
 @users.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
@@ -34,16 +46,15 @@ def sign_in():
         return redirect(url_for('main.home'))
     form = LoginForm()
     if form.validate_on_submit():
-        if form.validate_on_submit():
-            user = User.query.filter_by(email=form.email.data).first()
-            if user and bcrypt.check_password_hash(user.password, form.password.data):
-                if not user.confirmed:
-                    flash('Please, confirm your email first.', 'danger')
-                    return redirect(url_for('users.sign_in'))
-                login_user(user, remember=form.remember.data)
-                return redirect(url_for('main.home'))
-            else:
-                flash('Login Unsuccessful. Please check email and password', 'danger')
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
+            if not user.confirmed:
+                flash('Please, confirm your email first.', 'danger')
+                return redirect(url_for('users.sign_in'))
+            login_user(user, remember=form.remember.data)
+            return redirect(url_for('main.home'))
+        else:
+            flash('Login Unsuccessful. Please check email and password', 'danger')
     return render_template('sign_in.html', form=form)
 
 

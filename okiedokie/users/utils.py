@@ -29,6 +29,7 @@ def send_confirmation_email(user):
 
     {url_for('users.confirm_token', token=token, _external=True)}
 
+
     If you did not make your request, please ignore this email and no changes will be made.
         '''
 

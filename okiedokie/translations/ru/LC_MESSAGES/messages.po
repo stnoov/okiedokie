@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-01 10:56+0300\n"
-"PO-Revision-Date: 2020-08-01 10:56+0300\n"
+"POT-Creation-Date: 2020-08-04 23:30+0300\n"
+"PO-Revision-Date: 2020-08-04 23:43+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -18,6 +18,88 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
+
+#: templates/about.html:12
+msgid " is an online English-speaking club for kids and teenagers! "
+msgstr " это английский разговорный клуб для детей и подростков."
+
+#: templates/about.html:13
+msgid " is a Great Way to Improve YOUR English-Speaking Skills! "
+msgstr " это отличный способ улучшить навыки говорения на английском языке!"
+
+#: templates/about.html:14
+msgid ""
+" gives you a chance to practice English in a relaxed, informal "
+"environment. "
+msgstr ""
+" это непринужденная дружеская атмосфера, где в игровой форме мы поможем "
+"тебе пополнить словарный запас, подсказжем, как правильно строятся "
+"английские предложения и что именно нужно говорить в тех или иных "
+"ситуациях"
+
+#: templates/about.html:15
+msgid ""
+" provides an opportunity to be surrounded by the language and have "
+"regular, real reasons for using English. This will help you to feel more "
+"confident and prepared for English classes, exams and real-life settings."
+" "
+msgstr ""
+" это возможность использования английского языка! Практика поможет вам "
+"чувствовать себя более уверенно и комфортно на уроках, экзаменах и "
+"реальных жизненных ситуациях."
+
+#: templates/about.html:16
+msgid " In "
+msgstr " В "
+
+#: templates/about.html:16
+msgid " we: "
+msgstr " мы: "
+
+#: templates/about.html:18
+msgid " Discuss interesting topics "
+msgstr " Обсуждаем интересные темы"
+
+#: templates/about.html:19
+msgid " Meet new people "
+msgstr " Встречаемся и общаемся с новыми людьми "
+
+#: templates/about.html:20
+msgid " Play conversational games "
+msgstr " Играем в разговорные игры "
+
+#: templates/about.html:21
+msgid " Organize quizzes with prizes! "
+msgstr " Устраиваем викторины (с призами!) "
+
+#: templates/about.html:22
+msgid " Watch cartoons and movies "
+msgstr " Смотрим мультики и фильмы "
+
+#: templates/about.html:23
+msgid " Repeat grammar (a little bit) "
+msgstr " Повторяем грамматику "
+
+#: templates/about.html:24
+msgid " Get new positive emotions "
+msgstr " Получаем заряд позитивных эмоций "
+
+#: templates/about.html:26
+msgid ""
+" Participating in language speaking club Okie Dokie! help you to improve "
+"and expand your vocabulary, remember what you learned earlier and build "
+"fluency in English! "
+msgstr ""
+"Участие в разговорных клубах Okie Dokie! поможет вам вспомнить ранее "
+"изученный материал и, используя в речи, надолго закрепить его в памяти."
+
+#: templates/about.html:30
+msgid ""
+" Join our club and practice your English speaking with like-minded "
+"people! "
+msgstr ""
+" Присоединяйся и практикуй разговорные навыки английского языка вместе с "
+"единомышленниками!"
 
 #: templates/base.html:28
 msgid "Meetings"
@@ -43,10 +125,6 @@ msgstr "Отзывы"
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/base.html:41
-msgid "Language"
-msgstr ""
-
 #: templates/base.html:45
 msgid "Logout"
 msgstr "Выйти"
@@ -63,21 +141,17 @@ msgstr "Зарегистрироваться"
 msgid "Drop Us a Message"
 msgstr "Напишите нам"
 
-#: templates/contact.html:17
-msgid "Name *"
-msgstr "Ваше Имя *"
-
-#: templates/contact.html:20
+#: templates/contact.html:24
 msgid "Email *"
-msgstr "Ваша почта *"
+msgstr "Почта *"
 
-#: templates/contact.html:23
-msgid "Send Message"
-msgstr "Отправить Сообщение"
-
-#: templates/contact.html:28
+#: templates/contact.html:35
 msgid "Message *"
 msgstr "Сообщение *"
+
+#: templates/contact.html:48
+msgid "Name *"
+msgstr "Имя *"
 
 #: templates/create_admin.html:22 templates/reset_request.html:21
 #: templates/sign_in.html:21 templates/sign_up.html:22
@@ -138,20 +212,19 @@ msgstr "Записаться на занятие?"
 msgid "News Feed"
 msgstr "Новостная лента"
 
-#: templates/home.html:51 templates/home.html:60
+#: templates/home.html:52 templates/home.html:61
 msgid "Add News"
 msgstr "Добавить новость"
 
-#: templates/home.html:69 templates/home.html:171 templates/reviews.html:37
-#: templates/reviews.html:45
-msgid "Title *"
-msgstr "Заголовок *"
+#: templates/home.html:70 templates/home.html:172
+msgid "Title"
+msgstr "Заголовок"
 
-#: templates/home.html:71
+#: templates/home.html:72 templates/home.html:227
 msgid "Text"
 msgstr "Текст"
 
-#: templates/home.html:121
+#: templates/home.html:122
 msgid "Balance"
 msgstr "Баланс"
 
@@ -228,13 +301,43 @@ msgstr "Новая бонусная система"
 msgid "Earn 5 Okie Points and get free individual English lesson"
 msgstr "Заработай 5 OkieDokie Points и получи бесплатное индивидуальное занятие"
 
+#: templates/products.html:11
+msgid " Buy classes "
+msgstr " Оплатить занятия"
+
+#: templates/products.html:16
+msgid " 1 Class "
+msgstr " 1 Занятие"
+
+#: templates/products.html:21
+msgid "By purchasing this product, you will get one class and support our team"
+msgstr ""
+"Оплачивая данный товар, вы получаете одно занятие на баланс, а так же "
+"поддерживаете нашу команду"
+
+#: templates/products.html:39
+msgid " 5 Classes "
+msgstr " 5 Занятий"
+
+#: templates/products.html:44
+msgid "By purchasing this product, you will get five classes and support our team"
+msgstr ""
+"Оплачивая данный товар, вы получаете пять занятий на баланс, а так же "
+"поддерживаете нашу команду"
+
+#: templates/products.html:62
+msgid " 10 Classes "
+msgstr " 10 Занятий "
+
+#: templates/products.html:67
+msgid "By purchasing this product, you will get ten classes and support our team"
+msgstr ""
+"Оплачивая данный товар, вы получаете десять занятий на баланс, а так же "
+"поддерживаете нашу команду"
+
 #: templates/profile.html:23
 msgid "Account Info"
 msgstr "Информация об аккаунте"
-
-#: templates/profile.html:24
-msgid "Available classes"
-msgstr "Доступные занятия"
 
 #: templates/profile.html:27
 msgid "Email Address"
@@ -248,17 +351,25 @@ msgstr "Обновить картинку профиля"
 msgid "Reset Password"
 msgstr "Восстановить пароль"
 
+#: templates/profile.html:50
+msgid "Update"
+msgstr "Обновить"
+
+#: templates/reviews.html:37 templates/reviews.html:45
+msgid "Title *"
+msgstr "Заголовок *"
+
 #: templates/reviews.html:51 templates/reviews.html:59
 msgid "Review *"
 msgstr "Отзыв *"
 
 #: templates/sign_in.html:13
 msgid "Please Log In"
-msgstr "Вход в систему"
+msgstr "Вход"
 
 #: templates/sign_in.html:41
 msgid "Forgot your password"
-msgstr "Забыли пароль"
+msgstr "Забыли пароль?"
 
 #: templates/sign_in.html:41
 msgid "Reset"
@@ -275,4 +386,26 @@ msgstr "Имя"
 #: templates/sign_up.html:48 templates/sign_up.html:55
 msgid "Age"
 msgstr "Возраст"
+
+#: templates/success.html:13
+msgid "Thank You!"
+msgstr "Спасибо!"
+
+#: templates/success.html:14
+msgid ""
+"Your payment is processing. It might take up to two hours for classes to "
+"accrued "
+msgstr "Ваш платёж обрабатывается. Пополнение занятий может занять до двух часов"
+
+#: templates/success.html:17
+msgid " Having trouble? "
+msgstr " Столкнулись с проблемами?"
+
+#: templates/success.html:17
+msgid " Contact us "
+msgstr " Напишите нам"
+
+#: templates/success.html:20
+msgid " Continue to homepage"
+msgstr " Вернуться на главную"
 

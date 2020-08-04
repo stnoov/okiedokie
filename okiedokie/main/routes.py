@@ -62,11 +62,10 @@ def get_locale():
         return language
     return request.accept_languages.best_match(current_app.config['LANGUAGES'].keys())
 
+
 @main.route('/about')
 def about():
     return render_template('about.html')
-
-
 
 
 @main.route('/contact', methods=['GET', 'POST'])
