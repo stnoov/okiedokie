@@ -19,55 +19,68 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
     <a style="font-family: 'Bangers', cursive;"
        class="h3 ml-3 mr-5 text-decoration-none my-0 mr-md-auto font-weight-normal text-dark"
-       href="{{ url_for('main.home') }}"><span class="text-success">Okie</span><span class="text-warning">Dokie</span><strong
+       href="{{ url_for('main.home') }}"><span class="text-success">Okie</span><span
+            class="text-warning">Dokie</span><strong
             class="text-warning mr-5">!</strong></a>
-
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('main.home') }}">{{ _('Meetings') }} </a></li>
-            <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('ya_payments.payment') }}"> {{ _('Store') }}</a></li>
-            <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('main.about') }}"> {{ _('About') }}</a></li>
-            <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('main.contact') }}"> {{ _('Contact Us') }}</a>
+            <li class="nav-item"><a class="ml-3 text-decoration-none"
+                                    href="{{ url_for('main.home') }}">{{ _('Meetings') }} </a></li>
+            <li class="nav-item"><a class="ml-3 text-decoration-none"
+                                    href="{{ url_for('ya_payments.payment') }}"> {{ _('Store') }}</a></li>
+            <li class="nav-item"><a class="ml-3 text-decoration-none"
+                                    href="{{ url_for('main.about') }}"> {{ _('About') }}</a></li>
+            <li class="nav-item"><a class="ml-3 text-decoration-none"
+                                    href="{{ url_for('main.contact') }}"> {{ _('Contact Us') }}</a>
             </li>
-            <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('main.reviews') }}"> {{ _('Reviews') }}</a></li>
+            <li class="nav-item"><a class="ml-3 text-decoration-none"
+                                    href="{{ url_for('main.reviews') }}"> {{ _('Reviews') }}</a></li>
 
             {% if current_user.is_authenticated %}
-            <li class="nav-item"><a class="ml-3  text-decoration-none" href="{{ url_for('users.profile') }}"> {{ _('Profile') }} </a></li>
+                <li class="nav-item"><a class="ml-3  text-decoration-none"
+                                        href="{{ url_for('users.profile') }}"> {{ _('Profile') }} </a></li>
             {% endif %}
             {% if current_user.is_authenticated and current_user.is_admin %}
-            <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('admin.index') }}">Admin</a></li>
+                <li class="nav-item"><a class="ml-3 text-decoration-none" href="{{ url_for('admin.index') }}">Admin</a>
+                </li>
             {% endif %}
-             <li class="nav-item"><a class="ml-3 text-decoration-none" >
-                     <a href="{{ url_for('main.set_language', language='en') }}" ><img class="languages" src="{{ url_for('static',filename='images/english_lan.png') }}" alt=""></a>
-                     <a href="{{ url_for('main.set_language', language='ru') }}" ><img class="languages" src="{{ url_for('static',filename='images/russian_lan.png') }}" alt=""></a>
-             </a></li>
+            <li class="nav-item"><a class="ml-3 text-decoration-none">
+                <a href="{{ url_for('main.set_language', language='en') }}"><img class="languages"
+                                                                                 src="{{ url_for('static',filename='images/english_lan.png') }}"
+                                                                                 alt=""></a>
+                <a href="{{ url_for('main.set_language', language='ru') }}"><img class="languages"
+                                                                                 src="{{ url_for('static',filename='images/russian_lan.png') }}"
+                                                                                 alt=""></a>
+            </a></li>
         </ul>
     </div>
+    <ul class="nav navbar-nav navbar-right">
     {% if current_user.is_authenticated %}
-    <a class="btn btn-outline-primary ml-3" href="{{ url_for('users.logout') }}">{{ _('Logout') }} </a>
-    {% else %}
-    <div class="d-inline my-2 my-lg-0">
-        <a id="login " class="nav-right ml-3 btn btn-outline-primary text-decoration-none "
-           href="{{ url_for('users.sign_in') }}">{{ _('Sign in') }} </a>
-        <a class="nav-right ml-3 mr-3 btn btn-primary" href="{{ url_for('users.sign_up') }}">{{ _('Sign up') }}</a>
-    </div>
-    {% endif %}
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                <li></li>
+                <li id="logout" class="nav-item"><a class="btn btn-outline-primary ml-3" href="{{ url_for('users.logout') }}">{{ _('Logout') }} </a></li>
+            {% else %}
+                <div class="d-inline my-2 my-lg-0 d-inline-block">
+                    <li class="nav-item"><a id="login " class="ml-3 nav-right btn btn-outline-primary text-decoration-none d-inline-block"
+                       href="{{ url_for('users.sign_in') }}">{{ _('Sign in') }} </a> <a class="nav-right btn btn-primary d-inline-block"
+                                            href="{{ url_for('users.sign_up') }}">{{ _('Sign up') }}</a></li>
+                </div>
+            {% endif %}
+    </ul>
+    <button id="nav-collapse-button" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 </nav>
 
 {% with messages = get_flashed_messages(with_categories=true) %}
-{% if messages %}
-{% for category, message in messages %}
-<div class="alert alert-{{ category }}">
-    {{ message }}
-</div>
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
 
-{% endfor %}
-{% endif %}
+        {% endfor %}
+    {% endif %}
 {% endwith %}
 
 
@@ -77,19 +90,17 @@
 <footer class="footer mt-5">
     <div class="container">
         <div class="row">
-            <div class="col">
-                <span class="text-muted ">Our socials:  </span>
-                <div class="d-inline-block">
-                    <a rel="noopener noreferrer" target="_blank" href="https://vk.com/public195995603">
-                        <li class="d-inline-block ml-2 mr-2"><img src="{{url_for('static', filename='images/vk.png')}}"
-                                                                  style="height: 25px;" alt="vk"/></li>
-                    </a>
-                    <a target="_blank" rel="noopener noreferrer"
-                       href="https://www.instagram.com/okiedokie_english_club/">
-                        <li class="d-inline-block mr-2"><img src="{{url_for('static', filename='images/inst.png')}}"
-                                                             style="height: 25px;" alt="instagram"/></li>
-                    </a>
-                </div>
+            <span class="text-muted ">Our socials:  </span>
+            <div class="d-inline-block">
+                <a rel="noopener noreferrer" target="_blank" href="https://vk.com/public195995603">
+                    <li class="d-inline-block ml-2 mr-2"><img src="{{ url_for('static', filename='images/vk.png') }}"
+                                                              style="height: 25px;" alt="vk"/></li>
+                </a>
+                <a target="_blank" rel="noopener noreferrer"
+                   href="https://www.instagram.com/okiedokie_english_club/">
+                    <li class="d-inline-block mr-2"><img src="{{ url_for('static', filename='images/inst.png') }}"
+                                                         style="height: 25px;" alt="instagram"/></li>
+                </a>
             </div>
             <div class="col text-right">
                 <span class="text-muted ">© 2020 OKIEDOKIE!</span>

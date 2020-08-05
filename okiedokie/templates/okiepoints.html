@@ -6,7 +6,13 @@ Okie Points
 
 {% block body %}
 <div class="container mt-5 text-center">
-    <p class="h2 ">{{ _('How to earn Okie Points') }}?</p>
+    <div class="row">
+        <div class="col">
+            <p class="h2">{{ _('New bonus system') }}!</p>
+            <p class="h4 mt-4">{{ _('Earn 5 Okie Points and get free individual English lesson') }}!</p>
+        </div>
+        <div class="col">
+            <p class="h2 ">{{ _('How to earn Okie Points') }}?</p>
 
     <table class="table">
         <tbody>
@@ -27,6 +33,9 @@ Okie Points
         </tr>
         </tbody>
     </table>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col">
             <table class="table">
@@ -37,15 +46,14 @@ Okie Points
                 <tr class="bg-info rounded text-light border-bottom border-light h4">
                     <td>{{ loop.index }}</td>
                     <td class="h4 text-left">{{ user.first_name }} {{ user.last_name }}</td>
-                    <td class="h4">{{ user.points }}</td>
+                    <td class="h4">{{ user.points }} points</td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
-        <div class="col">
-            <p class="h1">{{ _('New bonus system') }}!</p>
-            <p class="h4 mt-4">{{ _('Earn 5 Okie Points and get free individual English lesson') }}!</p>
-        </div>
+    </div>
+    <div class="row">
+
     </div>
 </div>
 {% endblock body %}

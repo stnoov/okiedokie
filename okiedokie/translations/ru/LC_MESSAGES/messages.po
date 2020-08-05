@@ -153,6 +153,10 @@ msgstr "Сообщение *"
 msgid "Name *"
 msgstr "Имя *"
 
+#: templates/contact.html:53
+msgid "Send"
+msgstr "Отправить"
+
 #: templates/create_admin.html:22 templates/reset_request.html:21
 #: templates/sign_in.html:21 templates/sign_up.html:22
 msgid "Email"
@@ -314,6 +318,11 @@ msgid "By purchasing this product, you will get one class and support our team"
 msgstr ""
 "Оплачивая данный товар, вы получаете одно занятие на баланс, а так же "
 "поддерживаете нашу команду"
+
+#: templates/products.html:32 templates/products.html:55
+#: templates/products.html:78
+msgid "Buy"
+msgstr "Оплатить"
 
 #: templates/products.html:39
 msgid " 5 Classes "

@@ -1,17 +1,19 @@
-# Translations template for PROJECT.
+# Russian translations for PROJECT.
 # Copyright (C) 2020 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 23:30+0300\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-08-04 23:43+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ru\n"
+"Language-Team: ru <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,14 +29,24 @@ msgstr " это отличный способ улучшить навыки го
 
 #: templates/about.html:14
 msgid ""
-" gives you a chance to practice English in a relaxed, informal environment. "
-msgstr " это непринужденная дружеская атмосфера, где в игровой форме мы поможем тебе пополнить словарный запас, подсказжем, как правильно строятся английские предложения и что именно нужно говорить в тех или иных ситуациях"
+" gives you a chance to practice English in a relaxed, informal "
+"environment. "
+msgstr ""
+" это непринужденная дружеская атмосфера, где в игровой форме мы поможем "
+"тебе пополнить словарный запас, подсказжем, как правильно строятся "
+"английские предложения и что именно нужно говорить в тех или иных "
+"ситуациях"
 
 #: templates/about.html:15
 msgid ""
-" provides an opportunity to be surrounded by the language and have regular, real reasons for using English. This will help you to feel more confident and prepared for English classes, exams and real-life settings."
+" provides an opportunity to be surrounded by the language and have "
+"regular, real reasons for using English. This will help you to feel more "
+"confident and prepared for English classes, exams and real-life settings."
 " "
-msgstr " это возможность использования английского языка! Практика поможет вам чувствовать себя более уверенно и комфортно на уроках, экзаменах и реальных жизненных ситуациях."
+msgstr ""
+" это возможность использования английского языка! Практика поможет вам "
+"чувствовать себя более уверенно и комфортно на уроках, экзаменах и "
+"реальных жизненных ситуациях."
 
 #: templates/about.html:16
 msgid " In "
@@ -77,13 +89,17 @@ msgid ""
 " Participating in language speaking club Okie Dokie! help you to improve "
 "and expand your vocabulary, remember what you learned earlier and build "
 "fluency in English! "
-msgstr "Участие в разговорных клубах Okie Dokie! поможет вам вспомнить ранее изученный материал и, используя в речи, надолго закрепить его в памяти."
+msgstr ""
+"Участие в разговорных клубах Okie Dokie! поможет вам вспомнить ранее "
+"изученный материал и, используя в речи, надолго закрепить его в памяти."
 
 #: templates/about.html:30
 msgid ""
 " Join our club and practice your English speaking with like-minded "
 "people! "
-msgstr " Присоединяйся и практикуй разговорные навыки английского языка вместе с единомышленниками!"
+msgstr ""
+" Присоединяйся и практикуй разговорные навыки английского языка вместе с "
+"единомышленниками!"
 
 #: templates/base.html:28
 msgid "Meetings"
@@ -136,6 +152,10 @@ msgstr "Сообщение *"
 #: templates/contact.html:48
 msgid "Name *"
 msgstr "Имя *"
+
+#: templates/contact.html:53
+msgid "Send"
+msgstr "Отправить"
 
 #: templates/create_admin.html:22 templates/reset_request.html:21
 #: templates/sign_in.html:21 templates/sign_up.html:22
@@ -285,7 +305,6 @@ msgstr "Новая бонусная система"
 msgid "Earn 5 Okie Points and get free individual English lesson"
 msgstr "Заработай 5 OkieDokie Points и получи бесплатное индивидуальное занятие"
 
-
 #: templates/products.html:11
 msgid " Buy classes "
 msgstr " Оплатить занятия"
@@ -296,7 +315,14 @@ msgstr " 1 Занятие"
 
 #: templates/products.html:21
 msgid "By purchasing this product, you will get one class and support our team"
-msgstr "Оплачивая данный товар, вы получаете одно занятие на баланс, а так же поддерживаете нашу команду"
+msgstr ""
+"Оплачивая данный товар, вы получаете одно занятие на баланс, а так же "
+"поддерживаете нашу команду"
+
+#: templates/products.html:32 templates/products.html:55
+#: templates/products.html:78
+msgid "Buy"
+msgstr "Оплатить"
 
 #: templates/products.html:39
 msgid " 5 Classes "
@@ -304,7 +330,9 @@ msgstr " 5 Занятий"
 
 #: templates/products.html:44
 msgid "By purchasing this product, you will get five classes and support our team"
-msgstr "Оплачивая данный товар, вы получаете пять занятий на баланс, а так же поддерживаете нашу команду"
+msgstr ""
+"Оплачивая данный товар, вы получаете пять занятий на баланс, а так же "
+"поддерживаете нашу команду"
 
 #: templates/products.html:62
 msgid " 10 Classes "
@@ -312,7 +340,9 @@ msgstr " 10 Занятий "
 
 #: templates/products.html:67
 msgid "By purchasing this product, you will get ten classes and support our team"
-msgstr "Оплачивая данный товар, вы получаете десять занятий на баланс, а так же поддерживаете нашу команду"
+msgstr ""
+"Оплачивая данный товар, вы получаете десять занятий на баланс, а так же "
+"поддерживаете нашу команду"
 
 #: templates/profile.html:23
 msgid "Account Info"
@@ -333,10 +363,6 @@ msgstr "Восстановить пароль"
 #: templates/profile.html:50
 msgid "Update"
 msgstr "Обновить"
-
-#: templates/reset_request.html:13 templates/reset_token.html:13
-msgid "Reset Password"
-msgstr "Восстановить пароль"
 
 #: templates/reviews.html:37 templates/reviews.html:45
 msgid "Title *"
