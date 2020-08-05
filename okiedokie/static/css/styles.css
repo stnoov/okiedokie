@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    font-family: 'Open Sans', Roboto, sans-serif;
+    font-family: 'Open Sans', "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     margin-bottom: 60px;
     min-height: 30rem;
     padding-top: 4.5rem;
