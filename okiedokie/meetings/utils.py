@@ -7,7 +7,7 @@ def send_notification_email(user, event):
                   recipients=[user.email])
     msg.body = \
         f'''
-Вы успешно записали на занятие #{event.id}:
+Вы успешно записались на занятие #{event.id}:
 
 Занятие состоится: {event.date.strftime('%d/%m')} { event.date.strftime('%H:%M') } по московскому времени
 Ссылку на конференцию в Zoom вы сможете найти на странице занятия за 15 минут до его начала.
