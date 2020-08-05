@@ -13,7 +13,7 @@ def send_notification_email(user, event):
 Ссылку на конференцию в Zoom вы сможете найти на странице занятия за 15 минут до его начала.
 
 С уважением,
-Админинистрация OkieDokie!
+OkieDokie!
             '''
 
     mail.send(msg)
