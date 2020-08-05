@@ -377,7 +377,7 @@ msgid "Please Log In"
 msgstr "Вход"
 
 #: templates/sign_in.html:41
-msgid "Forgot your password"
+msgid "Forgot your password?"
 msgstr "Забыли пароль?"
 
 #: templates/sign_in.html:41

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 23:30+0300\n"
-"PO-Revision-Date: 2020-08-04 23:43+0300\n"
+"PO-Revision-Date: 2020-08-05 18:28+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -377,7 +377,7 @@ msgid "Please Log In"
 msgstr "Вход"
 
 #: templates/sign_in.html:41
-msgid "Forgot your password"
+msgid "Forgot your password?"
 msgstr "Забыли пароль?"
 
 #: templates/sign_in.html:41
