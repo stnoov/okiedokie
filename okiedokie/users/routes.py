@@ -116,7 +116,7 @@ def reset_token(token):
     user = User.verify_reset_token(token)
     if not user:
         flash('The token is invalid or expired', 'danger')
-        return redirect(url_for('users.reset_request'))
+        return redirect(url_for('users.request_reset'))
     form = ResetPasswordForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')

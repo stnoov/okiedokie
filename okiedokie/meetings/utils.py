@@ -14,6 +14,7 @@ def send_notification_email(user, event):
 
 С уважением,
 OkieDokie!
+
             '''
 
     mail.send(msg)
