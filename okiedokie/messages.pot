@@ -331,7 +331,7 @@ msgstr " 5 Занятий"
 #: templates/products.html:44
 msgid "By purchasing this product, you will get five classes with a 6 percent discount and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете пять занятий со скидкой 6 процентов, а так же "
+"Оплачивая данный товар, вы получаете пять занятий со скидкой 6 процентов, а также, "
 "поддерживаете нашу команду"
 
 #: templates/products.html:62
@@ -341,7 +341,7 @@ msgstr " 10 Занятий "
 #: templates/products.html:67
 msgid "By purchasing this product, you will get ten classes with a 12 percent discount and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете десять занятий со скидкой 12 процентов, а так же "
+"Оплачивая данный товар, вы получаете десять занятий со скидкой 12 процентов, а также, "
 "поддерживаете нашу команду"
 
 #: templates/profile.html:23
