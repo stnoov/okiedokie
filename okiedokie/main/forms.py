@@ -7,6 +7,7 @@ from wtforms.fields.html5 import EmailField
 class AddReviewForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     text = TextAreaField('Text', validators=[DataRequired()])
+    recaptcha = RecaptchaField()
     submit = SubmitField('Add Review')
 
 
