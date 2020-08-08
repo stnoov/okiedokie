@@ -35,7 +35,7 @@ msgstr ""
 " это непринужденная дружеская атмосфера, где в игровой форме мы поможем "
 "тебе пополнить словарный запас, подсказжем, как правильно строятся "
 "английские предложения и что именно нужно говорить в тех или иных "
-"ситуациях"
+"ситуациях."
 
 #: templates/about.html:15
 msgid ""
@@ -329,9 +329,9 @@ msgid " 5 Classes "
 msgstr " 5 Занятий"
 
 #: templates/products.html:44
-msgid "By purchasing this product, you will get five classes and support our team"
+msgid "By purchasing this product, you will get five classes with a 6 percent discount and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете пять занятий на баланс, а так же "
+"Оплачивая данный товар, вы получаете пять занятий со скидкой 6 процентов, а так же "
 "поддерживаете нашу команду"
 
 #: templates/products.html:62
@@ -339,9 +339,9 @@ msgid " 10 Classes "
 msgstr " 10 Занятий "
 
 #: templates/products.html:67
-msgid "By purchasing this product, you will get ten classes and support our team"
+msgid "By purchasing this product, you will get ten classes with a 12 percent discount and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете десять занятий на баланс, а так же "
+"Оплачивая данный товар, вы получаете десять занятий со скидкой 12 процентов, а так же "
 "поддерживаете нашу команду"
 
 #: templates/profile.html:23

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 23:30+0300\n"
-"PO-Revision-Date: 2020-08-05 18:28+0300\n"
+"PO-Revision-Date: 2020-08-08 16:16+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr ""
 " это непринужденная дружеская атмосфера, где в игровой форме мы поможем "
 "тебе пополнить словарный запас, подсказжем, как правильно строятся "
 "английские предложения и что именно нужно говорить в тех или иных "
-"ситуациях"
+"ситуациях."
 
 #: templates/about.html:15
 msgid ""
@@ -278,8 +278,8 @@ msgid "How to earn Okie Points"
 msgstr "Как заработать OkieDokie Points"
 
 #: templates/okiepoints.html:14
-msgid 'Share post with "OK" label from our'
-msgstr 'Репост поста с отметкой "ОК" из нашей'
+msgid "Share from our"
+msgstr "Репост из нашей"
 
 #: templates/okiepoints.html:14
 msgid "group on VK or Facebook"
@@ -302,8 +302,8 @@ msgid "New bonus system"
 msgstr "Новая бонусная система"
 
 #: templates/okiepoints.html:47
-msgid "Earn 10 Okie Points and get free individual English lesson"
-msgstr "Заработай 10 OkieDokie Points и получи бесплатное индивидуальное занятие"
+msgid "Earn 5 Okie Points and get free individual English lesson"
+msgstr "Заработай 5 OkieDokie Points и получи бесплатное индивидуальное занятие"
 
 #: templates/products.html:11
 msgid " Buy classes "
@@ -329,20 +329,24 @@ msgid " 5 Classes "
 msgstr " 5 Занятий"
 
 #: templates/products.html:44
-msgid "By purchasing this product, you will get five classes and support our team"
+msgid ""
+"By purchasing this product, you will get five classes with a 6 percent "
+"discount and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете пять занятий на баланс, а так же "
-"поддерживаете нашу команду"
+"Оплачивая данный товар, вы получаете пять занятий со скидкой 6 процентов,"
+" а так же поддерживаете нашу команду"
 
 #: templates/products.html:62
 msgid " 10 Classes "
 msgstr " 10 Занятий "
 
 #: templates/products.html:67
-msgid "By purchasing this product, you will get ten classes and support our team"
+msgid ""
+"By purchasing this product, you will get ten classes with a 12 percent "
+"discount and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете десять занятий на баланс, а так же "
-"поддерживаете нашу команду"
+"Оплачивая данный товар, вы получаете десять занятий со скидкой 12 "
+"процентов, а так же поддерживаете нашу команду"
 
 #: templates/profile.html:23
 msgid "Account Info"
