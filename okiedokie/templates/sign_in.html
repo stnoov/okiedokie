@@ -37,6 +37,8 @@ Log In
                     {{ form.remember.label(class="form-check-label") }}
                 </div>
     </fieldset>
+    <div class="mb-2"> {{ form.recaptcha() }} </div>
+
    {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
     <span class="mt-2">{{ _('Forgot your password?') }} <a href="{{ url_for('users.request_reset') }}"> {{ _('Reset') }}</a></span>
 </form>
