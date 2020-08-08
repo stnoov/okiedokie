@@ -78,6 +78,7 @@ Registration
             {% endif %}
 
         </fieldset>
+        <div class="mb-2"> {{ form.recaptcha() }} </div>
         {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
     </form>
 </div>

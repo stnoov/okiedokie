@@ -50,8 +50,10 @@
                     </div>
                     </div>
                 </div>
-                        <button class="btn btn-primary ml-3">{{ _('Send') }}</button>
+                        <div class="ml-3 mb-2"> {{ form.recaptcha() }} </div>
+
             </div>
+        <button class="h-25 btn btn-primary">{{ _('Send') }}</button>
         </form>
     </div>
 
