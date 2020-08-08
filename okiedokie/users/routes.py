@@ -49,12 +49,12 @@ def sign_in():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             if not user.confirmed:
-                flash('Please, confirm your email first.', 'danger')
+                flash('Пожалуйста, подтвердите почту.', 'danger')
                 return redirect(url_for('users.sign_in'))
             login_user(user, remember=form.remember.data)
             return redirect(url_for('main.home'))
         else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
+            flash('Неверные данные. Проверьте правильность почты или пароля', 'danger')
     return render_template('sign_in.html', form=form)
 
 
@@ -75,7 +75,7 @@ def profile():
             current_user.image_file = picture_file
         current_user.email = form.email.data
         db.session.commit()
-        flash('Your account has been updated!', 'success')
+        flash('Ваш аккаунт был обновлен!', 'success')
         return redirect(url_for('users.profile'))
     elif request.method == 'GET':
         form.email.data = current_user.email
@@ -92,7 +92,7 @@ def confirm_token(token):
     user.confirmed = True
     db.session.add(user)
     db.session.commit()
-    flash('You have confirmed your account. Thanks!', 'success')
+    flash('Вы подтвердите Ваш аккаунт. Спасибо!', 'success')
     return redirect(url_for('main.home'))
 
 
@@ -104,7 +104,7 @@ def request_reset():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         send_reset_email(user)
-        flash('Message with instruction was sent to your email', 'info')
+        flash('Письмо с дальнейшими инструкциями было отправлено на вашу почту', 'info')
         return redirect(url_for('users.sign_in'))
     return render_template('reset_request.html', form=form)
 
@@ -122,7 +122,7 @@ def reset_token(token):
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user.password = hashed_password
         db.session.commit()
-        flash('Your password has been updated!', 'success')
+        flash('Ваш пароль был обновлен!', 'success')
         return redirect(url_for('users.sign_in'))
     return render_template('reset_token.html', form=form)
 

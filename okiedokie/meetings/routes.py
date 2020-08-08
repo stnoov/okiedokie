@@ -26,10 +26,10 @@ def event(event_id):
             registered = True
     if form.validate_on_submit():
         if registered and not current_user.is_admin:
-            flash('You are already signed  for this meeting', 'warning')
+            flash('Вы уже записаны на это занятие', 'warning')
             return redirect(url_for('main.home'))
         if current_user.paid_classes < 1:
-            flash('You eventsnot have enough classes to register', 'warning')
+            flash('У вас не хватает оплаченных занятий для записи', 'warning')
             return redirect(url_for('main.home'))
         event.signed_users.append(current_user)
         send_notification_email(current_user, event1)
@@ -37,7 +37,7 @@ def event(event_id):
         current_user.paid_classes = current_user.paid_classes - 1
         current_user.attended_classes = current_user.attended_classes + 1
         db.session.commit()
-        flash('You have signed up for the meeting', 'success')
+        flash('Вы успешно записались на занятие', 'success')
         return redirect(url_for('main.home'))
     return render_template('event.html', event=event, form=form, current_date=current_date,
                            registered=registered, minutes=minutes)

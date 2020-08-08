@@ -73,7 +73,7 @@ def contact():
     form = ContactForm()
     if form.validate_on_submit():
         send_contact_message(form.email.data, form.name.data, form.message.data)
-        flash('Message sent', 'success')
+        flash('Письмо было отправлено', 'success')
         return redirect(url_for('main.contact'))
 
     return render_template('contact.html', form=form)
@@ -96,9 +96,8 @@ def reviews():
                              author=current_user)
         db.session.add(new_review)
         db.session.commit()
-        flash('Review has been submitted!', 'success')
+        flash('Отзыв был отправлен', 'success')
         return redirect(url_for('main.reviews'))
-        flash('Review has been submitted!', 'danger')
 
     return render_template('reviews.html', reviews=reviews, form=form, current_date=current_date)
 
