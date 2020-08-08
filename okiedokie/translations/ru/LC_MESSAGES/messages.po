@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 23:30+0300\n"
-"PO-Revision-Date: 2020-08-08 16:35+0300\n"
+"PO-Revision-Date: 2020-08-08 17:55+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -314,9 +314,9 @@ msgid " 1 Class "
 msgstr " 1 Занятие"
 
 #: templates/products.html:21
-msgid "By purchasing this product, you will get one class and support our team"
+msgid "By purchasing this product you get one class for 160₽ and support our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете одно занятие на баланс, а так же "
+"Оплачивая данный пакет, вы получаете 1 занятие по цене 160₽, а также "
 "поддерживаете нашу команду"
 
 #: templates/products.html:32 templates/products.html:55
@@ -330,11 +330,11 @@ msgstr " 5 Занятий"
 
 #: templates/products.html:44
 msgid ""
-"By purchasing this product, you will get five classes with a 6 percent "
-"discount and support our team"
+"By purchasing this product you get 5 classes for 150₽ each and support "
+"our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете пять занятий со скидкой 6 процентов,"
-" а также, поддерживаете нашу команду"
+"Оплачивая данный пакет, вы получаете 5 занятий по цене 150₽, а также "
+"поддерживаете нашу команду"
 
 #: templates/products.html:62
 msgid " 10 Classes "
@@ -342,11 +342,11 @@ msgstr " 10 Занятий "
 
 #: templates/products.html:67
 msgid ""
-"By purchasing this product, you will get ten classes with a 12 percent "
-"discount and support our team"
+"By purchasing this product you get 10 classes for 140₽ each and support "
+"our team"
 msgstr ""
-"Оплачивая данный товар, вы получаете десять занятий со скидкой 12 "
-"процентов, а также, поддерживаете нашу команду"
+"Оплачивая данный пакет, вы получаете 10 занятий по цене 140₽, а также "
+"поддерживаете нашу команду"
 
 #: templates/profile.html:23
 msgid "Account Info"
