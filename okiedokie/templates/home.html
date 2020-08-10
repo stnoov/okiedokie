@@ -120,7 +120,7 @@ Home
             {% if current_user.is_authenticated %}
             <div class="card text-white bg-warning mt-3" style="font-weight: 800">
                 <div class="card-header border-light pb-0"><p><strong>{{ _('Balance') }}:</strong> {{ current_user.paid_classes }}
-                    classes</p>
+                    class(es)</p>
                     <p><strong>OkieDokie Points:</strong> {{ current_user.points }} <a
                             href="{{ url_for('main.okiepoints') }}"><img class="ml-1 mb-1"
                                                                          src="{{url_for('static', filename='images/info.png')}}"
