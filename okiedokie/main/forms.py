@@ -14,7 +14,6 @@ class AddReviewForm(FlaskForm):
 class CreateNewsForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     text = TextAreaField('Text', validators=[DataRequired()])
-    recaptcha = RecaptchaField()
     add = SubmitField('Add news')
 
 
