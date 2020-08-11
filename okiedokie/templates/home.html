@@ -267,11 +267,11 @@ Home
                         {% endif %}
                         {% endfor %}
                         {% if current_user.is_authenticated and
-                        ((event.date - current_date).total_seconds()/60) > 0 and
+                        ((event.date - current_date).total_seconds()/60) > -15 and
                         ((event.date - current_date).total_seconds()/60) < 15 and
                         foundUser.flag == True%}
-                        <a href="{{ event.zoom_link }}" class="d-none d-sm-block btn btn-primary">Connect!</a>
-                        <a href="{{ event.zoom_link }}" class=" d-block d-sm-none btn btn-primary rounded -2"
+                        <a href="{{ event.zoom_link }}" class="d-none d-sm-block btn btn-warning">Connect!</a>
+                        <a href="{{ event.zoom_link }}" class=" d-block d-sm-none btn btn-warning rounded -2"
                            style="font-size: 1rem;">+</a>
 
                         {% elif current_user.is_authenticated and
