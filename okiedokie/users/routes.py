@@ -92,7 +92,7 @@ def confirm_token(token):
     user.confirmed = True
     db.session.add(user)
     db.session.commit()
-    flash('Вы подтвердите Ваш аккаунт. Спасибо!', 'success')
+    flash('Вы подтвердили Ваш аккаунт. Спасибо!', 'success')
     return redirect(url_for('main.home'))
 
 

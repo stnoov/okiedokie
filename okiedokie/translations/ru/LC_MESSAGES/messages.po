@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2020-08-04 23:30+0300\n"
-"PO-Revision-Date: 2020-08-08 17:55+0300\n"
+"PO-Revision-Date: 2020-08-11 10:28+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -302,8 +302,8 @@ msgid "New bonus system"
 msgstr "Новая бонусная система"
 
 #: templates/okiepoints.html:47
-msgid "Earn 5 Okie Points and get free individual English lesson"
-msgstr "Заработай 5 OkieDokie Points и получи бесплатное индивидуальное занятие"
+msgid "Earn 10 Okie Points and get free individual English lesson"
+msgstr "Заработай 10 OkieDokie Points и получи бесплатное индивидуальное занятие"
 
 #: templates/products.html:11
 msgid " Buy classes "

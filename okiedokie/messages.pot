@@ -302,8 +302,8 @@ msgid "New bonus system"
 msgstr "Новая бонусная система"
 
 #: templates/okiepoints.html:47
-msgid "Earn 5 Okie Points and get free individual English lesson"
-msgstr "Заработай 5 OkieDokie Points и получи бесплатное индивидуальное занятие"
+msgid "Earn 10 Okie Points and get free individual English lesson"
+msgstr "Заработай 10 OkieDokie Points и получи бесплатное индивидуальное занятие"
 
 #: templates/products.html:11
 msgid " Buy classes "

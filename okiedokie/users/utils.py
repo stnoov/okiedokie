@@ -16,7 +16,7 @@ def send_reset_email(user):
 {url_for('users.reset_token', token=token, _external=True)}
 
 С уважением,
-OkieDokie
+OkieDokie!
     '''
     mail.send(msg)
 
@@ -30,10 +30,10 @@ def send_confirmation_email(user):
 
     {url_for('users.confirm_token', token=token, _external=True)}
 
-Если у вас возникли проблемы, пожалуйста обратитесь в поддержку, используя контактную форму на сайте.
+Если у вас возникли проблемы, пожалуйста, обратитесь в поддержку, используя контактную форму на сайте.
 
 С уважением,
-OkieDokie
+OkieDokie!
         '''
 
     mail.send(msg)
