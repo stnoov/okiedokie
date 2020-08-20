@@ -1,19 +1,17 @@
-# Russian translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2020 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-04 23:30+0300\n"
-"PO-Revision-Date: 2020-08-04 23:43+0300\n"
+"POT-Creation-Date: 2020-08-20 11:50+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: ru\n"
-"Language-Team: ru <LL@li.org>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,11 +19,11 @@ msgstr ""
 
 #: templates/about.html:12
 msgid " is an online English-speaking club for kids and teenagers! "
-msgstr " это английский разговорный клуб для детей и подростков."
+msgstr ""
 
 #: templates/about.html:13
 msgid " is a Great Way to Improve YOUR English-Speaking Skills! "
-msgstr " это отличный способ улучшить навыки говорения на английском языке!"
+msgstr ""
 
 #: templates/about.html:14
 msgid ""
@@ -114,6 +112,10 @@ msgid "About"
 msgstr "О нас"
 
 #: templates/base.html:31
+msgid "About"
+msgstr ""
+
+#: templates/base.html:33
 msgid "Contact Us"
 msgstr "Связаться"
 
@@ -220,60 +222,63 @@ msgstr "Новостная лента"
 msgid "Add News"
 msgstr "Добавить новость"
 
-#: templates/home.html:70 templates/home.html:172
+#: templates/home.html:71 templates/home.html:177
 msgid "Title"
 msgstr "Заголовок"
 
-#: templates/home.html:72 templates/home.html:227
+#: templates/home.html:73 templates/home.html:230
 msgid "Text"
 msgstr "Текст"
 
-#: templates/home.html:122
+#: templates/home.html:125
 msgid "Balance"
 msgstr "Баланс"
 
-#: templates/home.html:129
+#: templates/home.html:134
 msgid "Your upcoming meetings"
 msgstr "Ваши следующие занятия"
 
-#: templates/home.html:146 templates/home.html:252
+#: templates/home.html:151 templates/home.html:256
 msgid "Sign up for a meeting"
 msgstr "Записаться на занятие"
 
-#: templates/home.html:159
+#: templates/home.html:165
 msgid "Create Meeting"
 msgstr "Создать занятие"
 
-#: templates/home.html:184
+#: templates/home.html:190
 msgid "Date and Time"
 msgstr "Дата и время"
 
-#: templates/home.html:190 templates/home.html:199
+#: templates/home.html:196 templates/home.html:205
 msgid "Duration"
 msgstr "Длительность"
 
-#: templates/home.html:206 templates/home.html:213 templates/home.html:219
-#: templates/home.html:226
+#: templates/home.html:211 templates/home.html:218 templates/home.html:223
 msgid "Places"
 msgstr "Места"
 
-#: templates/home.html:280
+#: templates/home.html:277
+msgid "Login or Register"
+msgstr "Войдите или Зарегистрируйтесь"
+
+#: templates/home.html:292
 msgid "Booked"
 msgstr "Забронировано"
 
-#: templates/home.html:285
+#: templates/home.html:297
 msgid "Full"
 msgstr "Заполнено"
 
-#: templates/home.html:288
+#: templates/home.html:300
 msgid "Expired"
 msgstr "Окончено"
 
-#: templates/home.html:291
+#: templates/home.html:304
 msgid "Book"
 msgstr "Забронировать"
 
-#: templates/okiepoints.html:9
+#: templates/okiepoints.html:11
 msgid "How to earn Okie Points"
 msgstr "Как заработать OkieDokie Points"
 
@@ -285,11 +290,11 @@ msgstr "Репост из нашей"
 msgid "group on VK or Facebook"
 msgstr "группы ВКонтакте или Фейбук"
 
-#: templates/okiepoints.html:18
+#: templates/okiepoints.html:20
 msgid "New member invited by you in meeting"
 msgstr "Пригласить друга"
 
-#: templates/okiepoints.html:22
+#: templates/okiepoints.html:24
 msgid "Victory in a game"
 msgstr "Победа в викторине"
 
@@ -302,8 +307,8 @@ msgid "New bonus system"
 msgstr "Новая бонусная система"
 
 #: templates/okiepoints.html:47
-msgid "Earn 10 Okie Points and get free individual English lesson"
-msgstr "Заработай 10 OkieDokie Points и получи бесплатное индивидуальное занятие"
+msgid "Earn 5 Okie Points and get free individual English lesson"
+msgstr "Заработай 5 OkieDokie Points и получи бесплатное индивидуальное занятие"
 
 #: templates/products.html:11
 msgid " Buy classes "
@@ -328,7 +333,9 @@ msgid " 5 Classes "
 msgstr " 5 Занятий"
 
 #: templates/products.html:44
-msgid "By purchasing this product you get 5 classes for 150₽ each and support our team"
+msgid ""
+"By purchasing this product you get 5 classes for 150₽ each and support "
+"our team"
 msgstr ""
 "Оплачивая данный пакет, вы получаете 5 занятий по цене 150₽, а также поддерживаете нашу команду"
 
@@ -337,7 +344,9 @@ msgid " 10 Classes "
 msgstr " 10 Занятий "
 
 #: templates/products.html:67
-msgid "By purchasing this product you get 10 classes for 140₽ each and support our team"
+msgid ""
+"By purchasing this product you get 10 classes for 140₽ each and support "
+"our team"
 msgstr ""
 "Оплачивая данный пакет, вы получаете 10 занятий по цене 140₽, а также поддерживаете нашу команду"
 

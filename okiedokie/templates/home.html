@@ -3,309 +3,323 @@
 
 {% endblock link %}
 {% block title %}
-Home
+    Home
 {% endblock title %}
 
 
 {% block body %}
 
-<div class="mt-5"></div>
-<main role="main" class="container mt-5">
-    <div class="row">
-        <div class="col-lg-5 mb-5">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators ">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner ">
-                    <div class="carousel-item active">
-                        <a href="{{ url_for('main.okiepoints') }}"><img class="d-block w-100 "
-                                                                        src="{{url_for('static', filename='images/bring_a_friend.png')}}"
-                                                                        alt="First slide"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <a href="{{ url_for('main.okiepoints') }}"><img class="d-block w-100"
-                                                                        src="{{url_for('static', filename='images/free_lesson.png')}}"
-                                                                        alt="Second slide"></a>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{{url_for('static', filename='images/reg_free.png')}}"
-                             alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon text-primary" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <h4 class="mt-5 ml-2 d-inline-block"><strong>{{ _('News Feed') }}</strong></h4>
-
-            {% if current_user.is_admin %}
-            <button type="button" class="btn btn-primary mb-2 ml-1" data-toggle="modal"
-                    data-target="#addNewsModal">
-                <strong style="font-size: 15px;">{{ _('Add News') }}</strong>
-            </button>
-            {% endif %}
-            <!-- Modal -->
-            <div class="modal fade" id="addNewsModal" tabindex="-1" role="dialog" aria-labelledby="addNewsModal"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="addNewsModalTitle">{{ _('Add News') }}</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
+    <div class="mt-5"></div>
+    <main role="main" class="container mt-5">
+        <div class="row">
+            <div class="col-lg-5 mb-5">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators ">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner ">
+                        <div class="carousel-item active">
+                            <a href="{{ url_for('main.okiepoints') }}"><img class="d-block w-100 "
+                                                                            src="{{ url_for('static', filename='images/bring_a_friend.png') }}"
+                                                                            alt="First slide"></a>
                         </div>
-                        <div class="modal-body">
-                            <form action="{{ url_for('main.home', form_action='news') }}" class="form" method="post">
-                                {{ news_form.hidden_tag() }}
-
-                                {{ news_form.title(class="form-control form-control-lg mb-2", placeholder= gettext("Title")) }}
-
-                                {{ news_form.text(class="form-control form-control-lg mb-2", placeholder= gettext("Text")) }}
-
-                                {{ news_form.add(class="btn btn-lg btn-outline-success btn-block") }}
-                            </form>
+                        <div class="carousel-item">
+                            <a href="{{ url_for('main.okiepoints') }}"><img class="d-block w-100"
+                                                                            src="{{ url_for('static', filename='images/free_lesson.png') }}"
+                                                                            alt="Second slide"></a>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="{{ url_for('static', filename='images/reg_free.png') }}"
+                                 alt="Third slide">
                         </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon text-primary" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-            </div>
+                <h4 class="mt-5 ml-2 d-inline-block"><strong>{{ _('News Feed') }}</strong></h4>
 
-            <div class="table-wrapper-scroll-y my-custom-scrollbar mt-2 shadow p-3 mb-5 bg-white rounded" id="style-3">
-
-                <table class="table">
-                    <tbody>
-                    {% for entry in news %}
-                    <tr class="border-bottom border-warning">
-                        <td>
-                            <div class="mb-2 h5 font-weight-bold text-primary">
-                                {{ entry.title }}
-                            </div>
-                            <div>
-                                {{ entry.text }}
-                            </div>
-                            <br>
-                            <div class="font-italic d-inline-block">
-                                {{ entry.date.strftime('%d/%m/%Y') }} {{ entry.date.strftime('%H:%m') }}
-                            </div>
-                            {% if current_user.is_admin %}
-
-                            <a class="btn btn-danger btn-xs ml-2 mb-2" title="Delete"
-                               href="{{ url_for('main.delete_news', news_id=entry.id) }}" }}>
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill"
-                                     fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd"
-                                          d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
-                                </svg>
-                            </a>
-                            {% endif %}
-                            <div class="d-inline-block">
-
-                            </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-lg-7">
-            {% if current_user.is_authenticated %}
-            <div class="card text-white bg-warning mt-3" style="font-weight: 800">
-                <div class="card-header border-light pb-0"><p><strong>{{ _('Balance') }}:</strong> {{ current_user.paid_classes }}
-                    class(es)</p>
-                    <p><strong>OkieDokie Points:</strong> {{ current_user.points }} <a
-                            href="{{ url_for('main.okiepoints') }}"><img class="ml-1 mb-1"
-                                                                         src="{{url_for('static', filename='images/info.png')}}"
-                                                                         style="height: 25px;" alt="vk"/></a></p>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><strong>{{ _('Your upcoming meetings') }}:</strong></h5>
-                    <div class="container">
-                        {% for event in current_user.signed_users %}
-                        {% if event.deleted == False and current_date < event.date %}
-                        <div class="row">
-                            <div class="col-6 text-left"><strong>{{ event.title }}</strong></div>
-                            <div class="col-3 text-left">{{ event.date.strftime('%d/%m/%Y') }}</div>
-                            <div class="col-3 text-left">{{ event.date.strftime('%H:%M')  }}(GMT+3)</div>
-                        </div>
-                        {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if current_user.is_admin %}
-            <div class="d-inline-block mt-4">
-                <h4 class="ml-2 d-inline-block"><strong> {{ _('Sign up for a meeting') }} </strong></h4>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary mb-1 ml-1" data-toggle="modal"
-                        data-target="#createEventModal">
-                    <strong style="font-size: 15px;">+</strong>
-                </button>
-
+                {% if current_user.is_admin %}
+                    <button type="button" class="btn btn-primary mb-2 ml-1" data-toggle="modal"
+                            data-target="#addNewsModal">
+                        <strong style="font-size: 15px;">{{ _('Add News') }}</strong>
+                    </button>
+                {% endif %}
                 <!-- Modal -->
-                <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog"
-                     aria-labelledby="createEventModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <div class="modal fade" id="addNewsModal" tabindex="-1" role="dialog" aria-labelledby="addNewsModal"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="createEventModalLabel">{{ _('Create Meeting') }}</h5>
+                                <h5 class="modal-title" id="addNewsModalTitle">{{ _('Add News') }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
+                                <form action="{{ url_for('main.home', form_action='news') }}" class="form"
+                                      method="post">
+                                    {{ news_form.hidden_tag() }}
 
-                                <form action="{{ url_for('main.home', form_action='event') }}" method="post">
-                                    {{ form.hidden_tag() }}
-                                    <fieldset class="form-group">
-                                        <h1 class="h3 mb-3 font-weight-normal">Meeting</h1>
-                                        {{ form.hidden_tag() }}
-                                        {{ form.title(class="form-control form-control-lg mb-2", placeholder= gettext("Title")) }}
+                                    {{ news_form.title(class="form-control form-control-lg mb-2", placeholder= gettext("Title")) }}
 
+                                    {{ news_form.text(class="form-control form-control-lg mb-2", placeholder= gettext("Text")) }}
 
-                                        {% if form.date.errors %}
-                                        {{ form.date(class="form-control form-control-lg is-invalid",
-                                        placeholder= gettext("Date")) }}
-                                        <div class="mt-1 mb-4 alert alert-danger">
-                                            {% for error in form.date.errors %}
-                                            <strong> {{ error }} </strong>
-                                            {% endfor %}
-                                        </div>
-
-                                        {% else %}
-                                        {{ form.date(class="form-control form-control-lg mb-2", placeholder= gettext("Date and Time"), type="datetime-local") }}
-                                        {% endif %}
-
-
-                                        {% if form.duration.errors %}
-                                        {{ form.duration(class="form-control form-control-lg is-invalid",
-                                        placeholder= gettext("Duration")) }}
-                                        <div class="mt-1 mb-4 alert alert-danger">
-                                            {% for error in form.duration.errors %}
-                                            <strong> {{ error }} </strong>
-                                            {% endfor %}
-                                        </div>
-
-                                        {% else %}
-                                        {{ form.duration(class="form-control form-control-lg mb-2",
-                                        placeholder= gettext("Duration"))
-                                        }}
-                                        {% endif %}
-
-
-                                        {% if form.places.errors %}
-                                        {{ form.places(class="form-control form-control-lg is-invalid",
-                                        placeholder=gettext("Places")) }}
-                                        <div class="mt-1 mb-4 alert alert-danger">
-                                            {% for error in form.places.errors %}
-                                            <strong> {{ error }} </strong>
-                                            {% endfor %}
-                                        </div>
-                                        {% else %}
-                                        {{ form.places(class="form-control form-control-lg mb-2", placeholder= gettext("Places") )
-                                        }}
-                                        {% endif %}
-
-                                        {% if form.text.errors %}
-                                        {{ form.text(class="form-control form-control-lg is-invalid",
-                                        placeholder= gettext("Places") ) }}
-                                        <div class="mt-1 mb-4 alert alert-danger">
-                                            {% for error in form.text.errors %}
-                                            <strong> {{ error }} </strong>
-                                            {% endfor %}
-                                        </div>
-                                        {% else %}
-                                        {{ form.text(class="form-control form-control-lg mb-2", placeholder= gettext("Text") ) }}
-                                        {% endif %}
-
-                                        {% if form.zoom_link.errors %}
-                                        {{ form.zoom_link(class="form-control form-control-lg is-invalid",
-                                        placeholder="Zoom Link") }}
-                                        <div class="mt-1 mb-4 alert alert-danger">
-                                            {% for error in form.zoom_link.errors %}
-                                            <strong> {{ error }} </strong>
-                                            {% endfor %}
-                                        </div>
-                                        {% else %}
-                                        {{ form.zoom_link(class="form-control form-control-lg mb-2", placeholder="Zoom
-                                        Link") }}
-                                        {% endif %}
-
-
-                                    </fieldset>
-                                    {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
+                                    {{ news_form.add(class="btn btn-lg btn-outline-success btn-block") }}
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% else %}
-            <h4 class="ml-2 mt-4"><strong>{{ _('Sign up for a meeting') }}</strong></h4>
-            {% endif %}
-            <table class="table mt-3" style="border-collapse:separate;  border-spacing:0 5px;">
-                <tbody>
-                {% for event in events %}
-                {% if event.deleted == False %}
-                <tr class="bg-success text-white">
-                    <td class="border-0 rounded-left" style="font-size: 1.3rem;">{{ event.title }}</td>
-                    <td class="border-0" style="font-size: 1.3rem;">{{ event.date.strftime('%d/%m') }} {{ event.date.strftime('%H:%M') }}(GMT+3)</td>
-                    <td class="border-0 rounded-right">{% set foundUser = { 'flag': False } %}
 
-                        {% for user in event.signed_users %}
-                        {% if current_user.id == user.id %}
-                        {%- if foundUser.update({'flag':True}) %}{%- endif %}
-                        {% endif %}
+                <div class="table-wrapper-scroll-y my-custom-scrollbar mt-2 shadow p-3 mb-5 bg-white rounded"
+                     id="style-3">
+
+                    <table class="table">
+                        <tbody>
+                        {% for entry in news %}
+                            <tr class="border-bottom border-warning">
+                                <td>
+                                    <div class="mb-2 h5 font-weight-bold text-primary">
+                                        {{ entry.title }}
+                                    </div>
+                                    <div>
+                                        {{ entry.text }}
+                                    </div>
+                                    <br>
+                                    <div class="font-italic d-inline-block">
+                                        {{ entry.date.strftime('%d/%m/%Y') }} {{ entry.date.strftime('%H:%m') }}
+                                    </div>
+                                    {% if current_user.is_admin %}
+
+                                        <a class="btn btn-danger btn-xs ml-2 mb-2" title="Delete"
+                                           href="{{ url_for('main.delete_news', news_id=entry.id) }}" }}>
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill"
+                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd"
+                                                      d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                                            </svg>
+                                        </a>
+                                    {% endif %}
+                                    <div class="d-inline-block">
+
+                                    </div>
+                                </td>
+                            </tr>
                         {% endfor %}
-                        {% if current_user.is_authenticated and
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                {% if current_user.is_authenticated %}
+                    <div class="card text-white bg-warning mt-3" style="font-weight: 800">
+                        <div class="card-header border-light pb-0"><p>
+                            <strong>{{ _('Balance') }}:</strong> {{ current_user.paid_classes }}
+                            class(es)</p>
+                            <p><strong>OkieDokie Points:</strong> {{ current_user.points }} <a
+                                    href="{{ url_for('main.okiepoints') }}"><img class="ml-1 mb-1"
+                                                                                 src="{{ url_for('static', filename='images/info.png') }}"
+                                                                                 style="height: 25px;" alt="vk"/></a>
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>{{ _('Your upcoming meetings') }}:</strong></h5>
+                            <div class="container">
+                                {% for event in current_user.signed_users %}
+                                    {% if event.deleted == False and current_date < event.date %}
+                                        <div class="row">
+                                            <div class="col-6 text-left"><strong>{{ event.title }}</strong></div>
+                                            <div class="col-3 text-left">{{ event.date.strftime('%d/%m/%Y') }}</div>
+                                            <div class="col-3 text-left">{{ event.date.strftime('%H:%M') }}(GMT+3)</div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if current_user.is_admin %}
+                    <div class="d-inline-block mt-4">
+                        <h4 class="ml-2 d-inline-block"><strong> {{ _('Sign up for a meeting') }} </strong></h4>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary mb-1 ml-1" data-toggle="modal"
+                                data-target="#createEventModal">
+                            <strong style="font-size: 15px;">+</strong>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="createEventModal" tabindex="-1" role="dialog"
+                             aria-labelledby="createEventModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"
+                                            id="createEventModalLabel">{{ _('Create Meeting') }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <form action="{{ url_for('main.home', form_action='event') }}" method="post">
+                                            {{ form.hidden_tag() }}
+                                            <fieldset class="form-group">
+                                                <h1 class="h3 mb-3 font-weight-normal">Meeting</h1>
+                                                {{ form.hidden_tag() }}
+                                                {{ form.title(class="form-control form-control-lg mb-2", placeholder= gettext("Title")) }}
+
+
+                                                {% if form.date.errors %}
+                                                    {{ form.date(class="form-control form-control-lg is-invalid",
+                                        placeholder= gettext("Date")) }}
+                                                    <div class="mt-1 mb-4 alert alert-danger">
+                                                        {% for error in form.date.errors %}
+                                                            <strong> {{ error }} </strong>
+                                                        {% endfor %}
+                                                    </div>
+
+                                                {% else %}
+                                                    {{ form.date(class="form-control form-control-lg mb-2", placeholder= gettext("Date and Time"), type="datetime-local") }}
+                                                {% endif %}
+
+
+                                                {% if form.duration.errors %}
+                                                    {{ form.duration(class="form-control form-control-lg is-invalid",
+                                        placeholder= gettext("Duration")) }}
+                                                    <div class="mt-1 mb-4 alert alert-danger">
+                                                        {% for error in form.duration.errors %}
+                                                            <strong> {{ error }} </strong>
+                                                        {% endfor %}
+                                                    </div>
+
+                                                {% else %}
+                                                    {{ form.duration(class="form-control form-control-lg mb-2",
+                                        placeholder= gettext("Duration")) }}
+                                                {% endif %}
+
+
+                                                {% if form.places.errors %}
+                                                    {{ form.places(class="form-control form-control-lg is-invalid",
+                                        placeholder=gettext("Places")) }}
+                                                    <div class="mt-1 mb-4 alert alert-danger">
+                                                        {% for error in form.places.errors %}
+                                                            <strong> {{ error }} </strong>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.places(class="form-control form-control-lg mb-2", placeholder= gettext("Places") ) }}
+                                                {% endif %}
+
+                                                {% if form.text.errors %}
+                                                    {{ form.text(class="form-control form-control-lg is-invalid",
+                                        placeholder= gettext("Places") ) }}
+                                                    <div class="mt-1 mb-4 alert alert-danger">
+                                                        {% for error in form.text.errors %}
+                                                            <strong> {{ error }} </strong>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.text(class="form-control form-control-lg mb-2", placeholder= gettext("Text") ) }}
+                                                {% endif %}
+
+                                                {% if form.zoom_link.errors %}
+                                                    {{ form.zoom_link(class="form-control form-control-lg is-invalid",
+                                        placeholder="Zoom Link") }}
+                                                    <div class="mt-1 mb-4 alert alert-danger">
+                                                        {% for error in form.zoom_link.errors %}
+                                                            <strong> {{ error }} </strong>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.zoom_link(class="form-control form-control-lg mb-2", placeholder="Zoom
+                                        Link") }}
+                                                {% endif %}
+
+
+                                            </fieldset>
+                                            {{ form.submit(class="btn btn-lg btn-outline-success btn-block") }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <h4 class="ml-2 mt-4"><strong>{{ _('Sign up for a meeting') }}</strong></h4>
+                {% endif %}
+                <table class="table mt-3" style="border-collapse:separate;  border-spacing:0 5px;">
+                    <tbody>
+                    {% for event in events %}
+                        {% if event.deleted == False %}
+                            <tr class="bg-success text-white">
+                            <td class="border-0 rounded-left" style="font-size: 1.3rem;">{{ event.title }}</td>
+                            <td class="border-0"
+                                style="font-size: 1.3rem;">{{ event.date.strftime('%d/%m') }} {{ event.date.strftime('%H:%M') }}(GMT+3)
+                            </td>
+                            <td class="border-0 rounded-right">{% set foundUser = { 'flag': False } %}
+
+                                {% for user in event.signed_users %}
+                                    {% if current_user.id == user.id %}
+                                        {%- if foundUser.update({'flag':True}) %}{%- endif %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if not current_user.is_authenticated %}
+                                    <a href="{{ url_for('users.sign_in', event_id=event.id) }}"
+                                       class="d-none d-sm-block btn btn-warning rounded -2"
+                                       style="font-size: 1rem;">{{ _('Login or Register') }}</a>
+                                {% elif current_user.is_authenticated and
                         ((event.date - current_date).total_seconds()/60) > -15 and
                         ((event.date - current_date).total_seconds()/60) < 15 and
-                        foundUser.flag == True%}
-                        <a href="{{ event.zoom_link }}" class="d-none d-sm-block btn btn-warning">Connect!</a>
-                        <a href="{{ event.zoom_link }}" class=" d-block d-sm-none btn btn-warning rounded -2"
-                           style="font-size: 1rem;">+</a>
+                        foundUser.flag == True %}
+                                    <a href="{{ event.zoom_link }}"
+                                       class="d-none d-sm-block btn btn-warning">Connect!</a>
+                                    <a href="{{ event.zoom_link }}"
+                                       class=" d-block d-sm-none btn btn-warning rounded -2"
+                                       style="font-size: 1rem;">+</a>
 
-                        {% elif current_user.is_authenticated and
+                                {% elif current_user.is_authenticated and
                         ((event.date - current_date).total_seconds()/60) > 15 and
                         foundUser.flag == True %}
-                        <a href="{{ url_for('meetings.event', event_id=event.id) }}"
-                           class="d-none d-sm-block btn btn-light">{{ _('Booked') }}</a>
-                        <a href="{{ url_for('meetings.event', event_id=event.id) }}"
-                           class=" d-block d-sm-none btn btn-light "
-                           style="font-size: 1rem;">+</a>
-                        {% elif current_user.is_authenticated and event.places < 1 and current_date < event.date %}
-                        <h5 class="d-none d-sm-block btn btn-warning">{{ _('Full') }}!</h5>
-                        {% elif current_date > event.date%}
-                        <a href="{{ url_for('meetings.event', event_id=event.id) }}"
-                           class="d-none d-sm-block btn btn-danger ">{{ _('Expired') }}</a>
-                        {% elif current_user.is_authenticated %}
-                        <a href="{{ url_for('meetings.event', event_id=event.id) }}"
-                           class=" d-none d-sm-block btn btn-primary rounded -2" style="font-size: 1rem;">{{ _('Book') }}</a>
-                        <a href="{{ url_for('meetings.event', event_id=event.id) }}"
-                           class=" d-block d-sm-none btn btn-primary rounded -2" style="font-size: 1rem;">+</a>
+                                    <a href="{{ url_for('meetings.event', event_id=event.id) }}"
+                                       class="d-none d-sm-block btn btn-light">{{ _('Booked') }}</a>
+                                    <a href="{{ url_for('meetings.event', event_id=event.id) }}"
+                                       class=" d-block d-sm-none btn btn-light "
+                                       style="font-size: 1rem;">+</a>
+                                {% elif current_user.is_authenticated and event.places < 1 and current_date < event.date %}
+                                    <h5 class="d-none d-sm-block btn btn-warning">{{ _('Full') }}!</h5>
+                                {% elif current_date > event.date %}
+                                    <a href="{{ url_for('meetings.event', event_id=event.id) }}"
+                                       class="d-none d-sm-block btn btn-danger ">{{ _('Expired') }}</a>
+                                {% elif current_user.is_authenticated %}
+                                    <a href="{{ url_for('meetings.event', event_id=event.id) }}"
+                                       class=" d-none d-sm-block btn btn-primary rounded -2"
+                                       style="font-size: 1rem;">{{ _('Book') }}</a>
+                                    <a href="{{ url_for('meetings.event', event_id=event.id) }}"
+                                       class=" d-block d-sm-none btn btn-primary rounded -2"
+                                       style="font-size: 1rem;">+</a>
+                                {% endif %}
+                            </td>
                         {% endif %}
-                    </td>
-                {% endif %}
-                {% if current_user.is_admin and event.deleted == False %}
-                    <td class="bg-white"><a href="{{ url_for('meetings.delete_post', event_id=event.id) }}" class="btn btn-danger">Delete</a></td>
-                </tr>
-                {% endif %}
-                {% endfor %}
-                </tbody>
-            </table>
+                    {% if current_user.is_admin and event.deleted == False %}
+                        <td class="bg-white"><a href="{{ url_for('meetings.delete_post', event_id=event.id) }}"
+                                                class="btn btn-danger">Delete</a></td>
+                        </tr>
+                    {% endif %}
+                    {% endfor %}
+                    </tbody>
+                </table>
 
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 
 
 {% endblock body %}

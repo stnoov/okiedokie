@@ -23,6 +23,7 @@ def resend_email_confirmation(email):
 
     return redirect(url_for('users.profile'))
 
+
 @users.route('/sign_up', methods=['GET', 'POST'])
 def sign_up():
     if current_user.is_authenticated:
