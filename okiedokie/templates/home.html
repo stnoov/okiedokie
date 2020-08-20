@@ -123,7 +123,9 @@
                     <div class="card text-white bg-warning mt-3" style="font-weight: 800">
                         <div class="card-header border-light pb-0"><p>
                             <strong>{{ _('Balance') }}:</strong> {{ current_user.paid_classes }}
-                            class(es)</p>
+                            {% if current_user.paid_classes != 1 %} classes
+                            {% elif current_user.paid_classes == 1 %} class
+                            {% endif %}    </p>
                             <p><strong>OkieDokie Points:</strong> {{ current_user.points }} <a
                                     href="{{ url_for('main.okiepoints') }}"><img class="ml-1 mb-1"
                                                                                  src="{{ url_for('static', filename='images/info.png') }}"
