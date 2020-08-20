@@ -295,8 +295,7 @@
                                 {% elif current_user.is_authenticated and event.places < 1 and current_date < event.date %}
                                     <h5 class="d-none d-sm-block btn btn-warning">{{ _('Full') }}!</h5>
                                 {% elif current_date > event.date %}
-                                    <a href="{{ url_for('meetings.event', event_id=event.id) }}"
-                                       class="d-none d-sm-block btn btn-danger ">{{ _('Expired') }}</a>
+                                    <btn class="d-none d-sm-block btn btn-danger ">{{ _('Expired') }}</btn>
                                 {% elif current_user.is_authenticated %}
                                     <a href="{{ url_for('meetings.event', event_id=event.id) }}"
                                        class=" d-none d-sm-block btn btn-primary rounded -2"
