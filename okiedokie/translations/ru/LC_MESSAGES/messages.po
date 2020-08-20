@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-08-20 11:50+0300\n"
-"PO-Revision-Date: 2020-08-20 11:55+0300\n"
+"POT-Creation-Date: 2020-08-20 12:08+0300\n"
+"PO-Revision-Date: 2020-08-20 12:14+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
 "Language-Team: ru <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 #: templates/about.html:12
 msgid " is an online English-speaking club for kids and teenagers! "
-msgstr ""
+msgstr " это английский разговорный клуб для детей и подростков."
 
 #: templates/about.html:13
 msgid " is a Great Way to Improve YOUR English-Speaking Skills! "
-msgstr ""
+msgstr " это отличный способ улучшить навыки говорения на английском языке!"
 
 #: templates/about.html:14
 msgid ""
@@ -424,4 +424,20 @@ msgstr " Напишите нам"
 #: templates/success.html:20
 msgid " Continue to homepage"
 msgstr " Вернуться на главную"
+
+#: templates/home.html:260
+msgid "Login"
+msgstr "Войдите "
+
+#: templates/home.html:260
+msgid "or"
+msgstr " или "
+
+#: templates/home.html:260
+msgid "Register"
+msgstr " Зарегистрируйтесь "
+
+#: templates/home.html:260
+msgid "to sign for the meeting"
+msgstr " чтобы записаться на занятие"
 

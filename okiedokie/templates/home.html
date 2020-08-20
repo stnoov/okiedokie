@@ -256,6 +256,9 @@
                     <h4 class="ml-2 mt-4"><strong>{{ _('Sign up for a meeting') }}</strong></h4>
                 {% endif %}
                 <table class="table mt-3" style="border-collapse:separate;  border-spacing:0 5px;">
+                {% if not current_user.is_authenticated  %}
+                    <span class="ml-2"><a href="{{ url_for('users.sign_in') }}">{{ _('Login') }}</a> {{ _('or') }} <a href="{{ url_for('users.sign_up') }}"> {{ _('Register') }} </a> {{ _('to sign for the meeting') }}</span>
+                {% endif %}
                     <tbody>
                     {% for event in events %}
                         {% if event.deleted == False %}
@@ -271,11 +274,7 @@
                                         {%- if foundUser.update({'flag':True}) %}{%- endif %}
                                     {% endif %}
                                 {% endfor %}
-                                {% if not current_user.is_authenticated %}
-                                    <a href="{{ url_for('users.sign_in', event_id=event.id) }}"
-                                       class="d-none d-sm-block btn btn-warning rounded -2"
-                                       style="font-size: 1rem;">{{ _('Login or Register') }}</a>
-                                {% elif current_user.is_authenticated and
+                                {% if current_user.is_authenticated and
                         ((event.date - current_date).total_seconds()/60) > -15 and
                         ((event.date - current_date).total_seconds()/60) < 15 and
                         foundUser.flag == True %}
