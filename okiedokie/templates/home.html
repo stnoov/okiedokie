@@ -139,7 +139,7 @@
                                     {% if event.deleted == False and current_date < event.date %}
                                         <div class="row">
                                             <div class="col-6 text-left"><strong>{{ event.title }}</strong></div>
-                                            <div class="col-3 text-left">{{ event.date.strftime('%d/%m/%Y') }}</div>
+                                            <div class="col-3 text-left">{{ event.date.strftime('%A %d/%m') }}</div>
                                             <div class="col-3 text-left">{{ event.date.strftime('%H:%M') }}(GMT+3)</div>
                                         </div>
                                     {% endif %}
@@ -267,7 +267,7 @@
                             <tr class="bg-success text-white">
                             <td class="border-0 rounded-left" style="font-size: 1.3rem;">{{ event.title }}</td>
                             <td class="border-0"
-                                style="font-size: 1.3rem;">{{ event.date.strftime('%d/%m') }} {{ event.date.strftime('%H:%M') }}(GMT+3)
+                                style="font-size: 1.3rem;">{{ event.date.strftime('%A %d/%m') }} {{ event.date.strftime('%H:%M') }}(GMT+3)
                             </td>
                             <td class="border-0 rounded-right">{% set foundUser = { 'flag': False } %}
 
