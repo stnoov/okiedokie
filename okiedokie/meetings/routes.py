@@ -25,7 +25,7 @@ def event(event_id):
         if current_user.id == user.id:
             registered = True
     if form.validate_on_submit():
-        if registered and not current_user.is_admin:
+        if registered:
             flash('Вы уже записаны на это занятие', 'warning')
             return redirect(url_for('main.home'))
         if current_user.paid_classes < 1:
